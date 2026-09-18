@@ -1,0 +1,302 @@
+/* ==========================================================================
+   THE MASTER LAYER ARCHITECTURE (Must be declared first)
+   ========================================================================== */
+@layer reset, base, layout, components, utilities, overrides;
+
+/* ==========================================================================
+   GOOGLE FONTS INTERFACE (Must appear before any style code)
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@700&family=IM+Fell+English+SC&family=Lato:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* ==========================================================================
+   1: CORE RESET LAYER
+   ========================================================================== */
+@layer reset {
+    *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        min-height: 100vh;
+        text-rendering: optimizeSpeed;
+        line-height: 1.5;
+    }
+
+    img {
+        max-width: 100%;
+        display: block;
+    }
+}
+
+/* ==========================================================================
+   2: DESIGN SYSTEM TOKENS & BASE ELEMENT TYPOGRAPHY
+   ========================================================================== */
+@layer base {
+    :root {
+        /* Color Palette Tokens */
+        --color-bg-primary: #fcfaf2;        /* Vintage Warm Cream canvas */
+        --color-bg-secondary: #f4f0e6;      /* Muted Parchment container blocks */
+        --color-text-primary: #2b2b2a;      /* High-Contrast Charcoal for reading */
+        --color-text-muted: #5f5f5e;        /* Faded Ink for subtext layers */
+        --color-accent-primary: #1b4d3e;    /* Deep Forest Jade for main accents */
+        --color-accent-warm: #9b4e44;       /* Antique Document Russet Red */
+        --color-focus-ring: rgba(155, 78, 68, 0.6);
+
+        /* Typography Font Stacks */
+        --font-heading: "IM Fell English SC", "Cinzel", Georgia, serif;
+        --font-accent-serif: "IM Fell Great Primer", Georgia, serif;
+        --font-body: "Lora", Georgia, serif;
+
+        /* Fluid Typography Scales */
+        --font-size-base: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+        --font-size-h1: clamp(2.2rem, 1.8rem + 2vw, 3.8rem);
+        --font-size-h2: clamp(1.5rem, 1.3rem + 1vw, 2.2rem);
+
+        /* Fluid Spacing Scale via Logical Properties */
+        --space-xs: 0.5rem;
+        --space-sm: 1rem;
+        --space-md: 1.5rem;
+        --space-lg: 2rem;
+        --space-xl: 4rem;
+        --space-fluid-sm: clamp(0.75rem, 0.5rem + 1vw, 1.25rem);
+        --space-fluid-md: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+        --space-fluid-lg: clamp(2.5rem, 2rem + 3vw, 4.5rem);
+
+        /* Shape & Boundary Constraints */
+        --border-radius-sm: 2px;
+        --border-radius-md: 4px;
+        --layout-max-width: 1440px;
+        --container-normal-width: 76ch;    /* Optimal readable line-length */
+        
+        /* Animation Transitions */
+        --transition-speed-fast: 0.2s;
+        --transition-ease-standard: ease;
+
+        /* Component-Specific Scopes */
+        --chapter-card-bg: var(--color-bg-secondary);
+        --chapter-card-border: rgba(43, 43, 42, 0.1);
+        --chapter-card-shadow: 0 4px 12px rgba(43, 43, 42, 0.03);
+        --chapter-card-hover-shadow: 0 8px 24px rgba(155, 78, 68, 0.08);
+        --header-blur-bg: rgba(252, 250, 242, 0.85);
+    }
+
+    /* Core Document Environment Setup */
+    body {
+        background-color: var(--color-bg-primary);
+        color: var(--color-text-primary);
+        font-family: var(--font-body);
+        font-size: var(--font-size-base);
+    }
+
+    h1, h2, h3, h4 {
+        font-family: var(--font-heading);
+        color: var(--color-accent-primary);
+        font-weight: normal;
+    }
+
+    /* Global Parchment Framing Container */
+    .global-parchment-backdrop {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        
+        /* Seamless fallbacks linked to your web-optimized Photoshop asset */
+        background-color: var(--color-bg-primary); 
+        background-image: url('../assets/background-image.webp');  
+        background-repeat: no-repeat;
+        background-position: right;
+        background-attachment: fixed;
+    }
+
+    /* Softens details of the artwork backdrop to maximize text readability */
+    .global-parchment-backdrop::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: rgba(252, 250, 242, 0.82); 
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    /* Keeps structural blocks cleanly positioned above the canvas overlay layer */
+    .site-header, .site-index, .chapter-page, footer {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+/* ==========================================================================
+   3: SITE-WIDE STRUCTURAL LAYOUT COMPONENTS
+   ========================================================================== */
+@layer components {
+    /* Main Layout Headers */
+    .site-header {
+        background-color: var(--header-blur-bg);
+        border-bottom: 1px solid rgba(43, 43, 42, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: var(--layout-max-width);
+        margin: 0 auto;
+        padding: var(--space-sm) var(--space-fluid-md);
+    }
+
+    .logo-link {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        text-decoration: none;
+    }
+
+    .nav-logo {
+        width: 45px;
+        height: auto;
+    }
+
+    .site-logo h1 {
+        font-size: 1.5rem;
+    }
+
+    /* Navigation Links */
+    .site-nav ul {
+        list-style: none;
+        display: flex;
+        gap: var(--space-md);
+    }
+
+    .nav-link {
+        text-decoration: none;
+        color: var(--color-text-primary);
+        font-family: var(--font-heading);
+        font-size: 0.95rem;
+        transition: color var(--transition-speed-fast) var(--transition-ease-standard);
+    }
+
+    /* Footer Layout Elements */
+    .site-footer {
+        max-width: var(--layout-max-width);
+        margin: 0 auto;
+        padding: var(--space-lg) var(--space-fluid-md);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.88rem;
+        color: var(--color-text-muted);
+    }
+
+    .footer-links {
+        display: flex;
+        gap: var(--space-md);
+    }
+
+    .footer-links a {
+        text-decoration: none;
+        color: var(--color-text-muted);
+        transition: color var(--transition-speed-fast) var(--transition-ease-standard);
+    }
+}
+
+/* ==========================================================================
+   7: UTILITIES & COMPONENT STATES LAYER
+   ========================================================================== */
+@layer utilities {
+    .u-text-center { text-align: center !important; }
+    .u-margin-bottom-none { margin-bottom: 0 !important; }
+    .u-hide-screen { display: none !important; }
+
+    .nav-link:hover,
+    .footer-links a:hover {
+        color: var(--color-accent-warm);
+    }
+
+    .chapter:hover {
+        transform: translateY(-4px);
+        border-color: var(--color-accent-warm);
+        box-shadow: var(--chapter-card-hover-shadow);
+    }
+
+    .nav-link[aria-current="page"] {
+        color: var(--color-accent-primary);
+        border-bottom: 2px solid var(--color-accent-primary);
+        padding-bottom: var(--space-xs);
+    }
+
+    .card-link[aria-disabled="true"] {
+        color: var(--color-text-muted);
+        pointer-events: none;
+        opacity: 0.5;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        *, ::before, ::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
+        .chapter:hover {
+            transform: none !important;
+        }
+    }
+}
+
+/* ==========================================================================
+   8: RESPONSIVE BREAKPOINTS OVERRIDES
+   ========================================================================== */
+@layer overrides {
+    @media (max-width: 48rem) {
+        .header-container, .site-footer {
+            flex-direction: column;
+            text-align: center;
+            gap: var(--space-sm);
+        }
+        .site-nav ul {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--space-sm);
+        }
+        .sub-page-nav {
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+    }
+}
+
+/* ==========================================================================
+   9: PRINT OPTIMIZATION PROFILE
+   ========================================================================== */
+@media print {
+    .site-header, .sub-page-nav, .footer-links, .global-parchment-backdrop::before {
+        display: none !important;
+    }
+
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-size: 12pt;
+    }
+
+    .chapter-page {
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    h1, h2, h3, table, tr { page-break-inside: avoid; }
+    cite { font-weight: bold; color: #000000 !important; }
+
+    th {
+        background-color: #f0f0f0 !important;
+        color: #000000 !important;
+        border-bottom: 2px solid #000000 !important;
+    }
+}

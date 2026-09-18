@@ -1,0 +1,279 @@
+/* ==========================================================================
+   index.css | Strict Grid Architecture Updates
+   ========================================================================== */
+
+@layer layout {
+    /* Main structural layout grid configuration */
+    .site-index {
+        display: grid;
+        grid-template-columns: 4fr 6fr; /* 40% left column, 60% right column */
+        gap: 2.5rem 4rem;
+        align-items: start;
+        inline-size: 100%;
+        max-inline-size: var(--layout-max-width, 1400px);
+        margin-block: var(--space-fluid-md, 2.5rem);
+        margin-inline: auto;
+        padding-inline: var(--space-fluid-sm, 2rem);
+        box-sizing: border-box;
+    }
+
+    /* ROW 1: FULL WIDTH BRANDING BANNER */
+    .branding-header {
+        grid-column: 1 / -1; /* Spans across both tracks at the very top */
+        margin-block-end: 1rem;
+    }
+
+    /* ROW 2 - COLUMN 1: STANDALONE LOGO */
+    .hero-logo-frame {
+        grid-column: 1; /* Locks the logo completely by itself in the left lane */
+        grid-row: 2;    /* Aligns horizontally with the cards on the right */
+        display: flex;
+        justify-content: flex-start;
+        inline-size: 100%;
+        box-sizing: border-box;
+    }
+
+    /* ROW 2 - COLUMN 2: 2-COLUMN CARD PORTAL */
+    .directory-portal {
+        grid-column: 2; /* Locks the portal entirely in the right lane */
+        grid-row: 2;    /* Aligns horizontally with the standalone logo */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 columns inside the right track */
+        gap: 2rem;
+    }
+
+    /* ROW 3: FULL WIDTH FOOTER BASELINE */
+    .site-footer {
+        grid-column: 1 / -1; /* Spans across both tracks at the bottom */
+        display: flex;
+        justify-content: space-between; 
+        align-items: center;
+        padding-block-start: 2rem;
+        margin-block-start: 4rem;
+        border-top: 1px solid rgba(43, 43, 42, 0.15); 
+    }
+}
+
+@layer components {
+    /* TOP HEADER BOX PANEL */
+    .branding-header {
+        background-color: var(--color-bg-secondary, rgba(255, 255, 255, 0.92));
+        padding: 2.5rem;
+        border: 0.75px solid var(--color-accent-primary, #1c352d);
+        border-radius: 4px;
+        box-shadow: 0px 4px 15px rgba(27, 77, 62, 0.06);
+        box-sizing: border-box;
+    }
+
+    .cover-title {
+        font-family: var(--font-heading), 'IM Fell Great Primer SC', serif;
+        color: var(--color-accent-primary, #1c352d);
+        font-size: 3rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-block-start: 0;
+        margin-block-end: 1rem;
+        line-height: 1.15;
+    }
+
+    .cover-description {
+        font-family: var(--font-body), 'Lora', Georgia, serif;
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: var(--color-text-primary, #2b2b2a);
+        max-width: 85ch;
+        margin: 0;
+    }
+
+    /* STANDALONE LOGO FRAME SPECIFICATIONS */
+    .cover-logo {
+        display: block;
+        inline-size: 100%;
+        max-inline-size: 525px; /* Restores size parameters to perfectly balance the right grid stack */
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: contain;
+        filter: drop-shadow(0px 6px 12px rgba(43, 43, 42, 0.12));
+    }
+
+    /* RIGHT SIDE DIRECTORY CARD SPECS */
+    .directory-card {
+        background: var(--color-bg-secondary, rgba(255, 255, 255, 0.92));
+        border: 0.75px solid var(--color-accent-primary, #1c352d);
+        border-radius: 4px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 220px;
+        box-shadow: 0px 4px 10px rgba(27, 77, 62, 0.04);
+        box-sizing: border-box;
+        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .directory-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--color-accent-warm, #d9822b);
+        box-shadow: 0px 8px 16px rgba(28, 53, 45, 0.12);
+    }
+
+    .card-header h3 {
+        font-family: var(--font-heading), 'IM Fell Great Primer SC', serif;
+        color: var(--color-accent-primary, #1c352d);
+        font-size: 1.25rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin: 0;
+    }
+
+    .card-summary {
+        font-family: var(--font-body), 'Lora', Georgia, serif;
+        font-size: 0.95rem;
+        line-height: 1.55;
+        color: var(--color-text-primary, #2b2b2a);
+        margin-block-start: 0.5rem;
+        margin-block-end: 0;
+    }
+
+    .card-navigation {
+        display: flex;
+        justify-content: flex-end;
+        margin-block-start: 1.5rem;
+    }
+
+    .main-chapter-link {
+        font-family: var(--font-heading), 'IM Fell Great Primer', serif;
+        color: var(--color-accent-warm, #d9822b);
+        font-size: 1.05rem;
+        font-weight: 700;
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.2s ease;
+    }
+
+    .main-chapter-link:hover {
+        border-color: var(--color-accent-warm, #d9822b);
+    }
+
+    /* PRACTICE DIRECTORY CARD SETS */
+    .practical-links-directory {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        margin-block-start: 0.75rem;
+    }
+
+    .directory-section-label {
+        font-family: var(--font-heading), 'IM Fell Great Primer SC', serif;
+        font-size: 0.85rem;
+        color: var(--color-text-primary, #2b2b2a);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-block-start: 0.5rem;
+        opacity: 0.8;
+    }
+
+    .sub-portal-link {
+        font-family: var(--font-body), 'Lora', Georgia, serif;
+        font-size: 0.95rem;
+        color: var(--color-accent-primary, #1c352d);
+        text-decoration: underline;
+        width: fit-content;
+    }
+
+    .sub-portal-link:hover {
+        color: var(--color-accent-warm, #d9822b);
+    }
+
+    /* FOOTER ANCHORS */
+    .footer-copyright p {
+        margin: 0;
+        font-family: var(--font-body), 'Lora', Georgia, serif;
+        font-size: 0.9rem;
+        color: var(--color-text-primary, #2b2b2a);
+    }
+
+    .footer-nav {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .footer-link {
+        font-family: var(--font-heading), 'IM Fell Great Primer SC', serif;
+        color: var(--color-accent-primary, #1c352d);
+        font-size: 0.9rem;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .footer-link:hover {
+        color: var(--color-accent-warm, #d9822b);
+        border-color: var(--color-accent-warm, #d9822b);
+    }
+}
+
+@layer overrides {
+    /* Responsive stacking rules for medium displays */
+    @media (max-width: 64rem) {
+        .site-index {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            padding-inline: var(--space-fluid-sm, 1.5rem);
+        }
+        
+        .branding-header,
+        .hero-logo-frame,
+        .directory-portal,
+        .site-footer {
+            grid-column: 1;
+            grid-row: auto; /* Drops items sequentially in a continuous single lane */
+        }
+
+        .branding-header {
+            text-align: center;
+        }
+
+        .cover-description {
+            margin-inline: auto;
+        }
+
+        .hero-logo-frame {
+            justify-content: center; /* Center-aligns the logo when layout collapses */
+        }
+    }
+
+    /* Responsive stacking rules for portrait phones */
+    @media (max-width: 40rem) {
+        .directory-portal {
+            grid-template-columns: 1fr; /* Cards fall into a neat column roll */
+            gap: 1.5rem;
+        }
+
+        .cover-title {
+            font-size: 2.2rem;
+        }
+
+        .site-footer {
+            flex-direction: column-reverse; 
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .footer-nav {
+            flex-direction: column;
+            gap: 1rem;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .directory-card,
+        .main-chapter-link,
+        .footer-link {
+            transition: none !important;
+            transform: none !important;
+        }
+    }
+}

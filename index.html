@@ -4,75 +4,129 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tarocchi to Tarot | Home</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/index.css">
 </head>
 
-<body id="index-toc">
+<body id="index-cover">
     <div class="global-parchment-backdrop">
-        <header class="site-header">
-            <div class="header-container">
-                <a href="index.html" class="logo-link">
-                    <img src="assets/SVG/Artboard 1.svg" alt="Tarocchi to Tarot Logo" class="nav-logo"/>
-                    <span class="site-logo"><h1>Tarocchi to Tarot</h1></span>
-                </a>
-                <nav class="site-nav">
-                    <ul>
-                        <li><a href="genesis.html" class="nav-link">Chapter One</a></li> 
-                        <li><a href="mechanics.html" class="nav-link">Chapter Two</a></li> 
-                        <li><a href="esoteric.html" class="nav-link">Chapter Three</a></li> 
-                        <li><a href="spread.html" class="nav-link">Chapter Four</a></li> 
-                        <li><a href="frontier.html" class="nav-link">Chapter Five</a></li>
-                    </ul>
+        
+        <!-- Main Asymmetrical Grid Canvas Base Grid Layout -->
+        <main class="site-index">
+            
+            <!-- FULL WIDTH: TITLE & DESCRIPTION BLOCK -->
+            <header class="branding-header">
+                <h1 class="cover-title">Tarocchi to Tarot</h1>
+                <p class="cover-description">
+                    An archival history mapping the structural development of the Tarot deck. 
+                    Follow its design progression—beginning as 15th-century Italian playing cards, 
+                    shifting into global frameworks for psychoanalysis, and establishing the 
+                    foundational visual training data modern Large Language Models use today.
+                </p>
+            </header>
+
+            <!-- LEFT COLUMN: SIDEBAR ICON BLOCK -->
+            <section class="hero-logo-frame">
+                <img src="assets/illuminated-t.webp" 
+                    srcset="assets/illuminated-t.webp 1x, assets/illuminated-t@2x.webp 2x" 
+                    alt="Illuminated historic woodcut letter T framing astronomical paths" 
+                    class="cover-logo"
+                    width="280"
+                    height="280"
+                    loading="eager"/>
+            </section>
+
+            <!-- RIGHT COLUMN: 2x3 CHAPTER ROUTING DIRECTORY PORTAL -->
+            <section class="directory-portal">
+
+                <!-- Chapter 1 -->
+                <article class="directory-card">
+                    <div class="card-header">
+                        <h3>Chapter One</h3>
+                        <p class="card-summary">Explore the early historical playing frameworks, global roots, and late medieval parlor gaming origins of the deck.</p>
+                    </div>
+                    <div class="card-navigation">
+                        <a href="chapters/genesis.html" class="main-chapter-link">The Genesis of Play &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Chapter 2 -->
+                <article class="directory-card">
+                    <div class="card-header">
+                        <h3>Chapter Two</h3>
+                        <p class="card-summary">An in-depth look at trick-taking structures, traditional asset values, and historical rules on how to play.</p>
+                    </div>
+                    <div class="card-navigation">
+                        <a href="chapters/mechanics.html" class="main-chapter-link">System Mechanics &amp; Tarocchi &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Chapter 3 -->
+                <article class="directory-card">
+                    <div class="card-header">
+                        <h3>Chapter Three</h3>
+                        <p class="card-summary">Tracing the transformation during the Enlightenment through to the secret societies of the Order of the Golden Dawn.</p>
+                    </div>
+                    <div class="card-navigation">
+                        <a href="chapters/esoteric.html" class="main-chapter-link">The Esoteric Shift &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Chapter 4 -->
+                <article class="directory-card">
+                    <div class="card-header">
+                        <h3>Chapter Four</h3>
+                        <p class="card-summary">The integration of psychoanalysis, daily readings, and interactive digital canvas layout engines.</p>
+                    </div>
+                    <div class="card-navigation">
+                        <a href="chapters/spread.html" class="main-chapter-link">The Modern Spread &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Chapter 5 -->
+                <article class="directory-card">
+                    <div class="card-header">
+                        <h3>Chapter Five</h3>
+                        <p class="card-summary">Relational database systems, structural modern metadata collections, and card image analysis frameworks.</p>
+                    </div>
+                    <div class="card-navigation">
+                        <a href="chapters/frontier.html" class="main-chapter-link">The Generative Frontier &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Chapter 6: Practical Explorations Resource Hub -->
+                <article class="directory-card utility-hub-card">
+                    <div class="card-header">
+                        <h3>Practice</h3>
+                    </div>
+                    <div class="card-navigation practical-links-directory">
+                        <span class="directory-section-label">How To Play</span>
+                        <a href="sub-chapters/play.html" class="sub-portal-link">How To Play Italian Tarocchi</a>
+                        
+                        <span class="directory-section-label">Try a Spread</span>
+                        <a href="sub-chapters/one-card.html" class="sub-portal-link">Daily One-Card</a>
+                        <a href="sub-chapters/three-card.html" class="sub-portal-link">Past-Present-Future</a>
+                        <a href="sub-chapters/ten-card.html" class="sub-portal-link">Celtic Cross Layout</a>
+                        
+                        <span class="directory-section-label">Gallery of Tarot Decks</span>
+                        <a href="subchapters/tarot.html" class="sub-portal-link">Historic Deck Collections</a>
+                    </div>
+                </article>
+
+            </section>
+
+            <!-- GRID BASELINE: SEMANTIC ACADEMIC REFERENCE FOOTER BAR -->
+            <footer class="site-footer">
+                <div class="footer-copyright">
+                    <p>Tarocchi to Tarot &copy; 2026 Sarah Morrigan Powers Moore. All rights reserved.</p>
+                </div>
+                <nav class="footer-nav" aria-label="Reference Navigation">
+                    <a href="reference-pages/disclosure.html" class="footer-link">AI Disclosure</a>
+                    <a href="reference-pages/bibliography.html" class="footer-link">Bibliography &amp; Citations</a>
                 </nav>
-            </div>
-        </header>
+            </footer>
 
-        <main class="chapter-page">
-            <section class="site-description">
-                <p>An archival history mapping the structural development of the Tarot deck. 
-                Follow its design progression—beginning as 15th-century Italian playing cards, 
-                shifting into global frameworks for psychoanalysis, and establishing the 
-                foundational visual training data modern Large Language Models use today.</p>
-            </section>
-
-            <section class="chapter-portal">
-                <a href="genesis.html" class="chapter">
-                <h2>Chapter One - The Genesis of Play</h2>
-                <span class="card-action">Global Roots & Parlor Gaming &rarr;</span>
-                </a>
-
-                <a href="mechanics.html" class="chapter">
-                <h2>Chapter Two - System Mechanics & Tarocchi</h2>
-                <span class="card-action">How to Play &rarr;</span>
-                </a>
-
-                <a href="esoteric.html" class="chapter">
-                <h2>Chapter Three - The Esoteric Shift</h2>
-                <span class="card-action">Enlightenment to the Order of the Golden Dawn &rarr;</span>
-                </a>
-
-                <a href="spread.html" class="chapter">
-                <h2>Chapter Four - The Modern Spread</h2>
-                <span class="card-action">Psychology, Daily Spreads & Layout Engine &rarr;</span>
-                </a>
-
-                <a href="frontier.html" class="chapter">
-                <h2>Chapter Five - The Generative Frontier & Card Index</h2>
-                <span class="card-action">Relational Databases, AI & Card Directory &rarr;</span>
-                </a>
-            </section>
         </main>
-
-        <footer>
-            <div class="site-footer">
-                <p class="copyright">Tarocchi to Tarot &copy; 2026 Sarah Morrigan Powers Moore. All rights reserved.</p>
-
-                <nav class="footer-links">
-                    <a href="disclosure.html">AI Disclosure</a>
-                    <a href="bibliography.html">Bibliography & Citations</a>
-                </nav>
-            </div>
-        </footer>
     </div>
 </body>
 </html>

@@ -1,0 +1,29 @@
+@layer components {
+    /* PATTERN 5: ACADEMIC BIBLIOGRAPHY MEDIA STRUCTURE */
+    .bibliography-list {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .bibliography-list > li {
+        margin-bottom: var(--space-lg);
+        padding: var(--space-md);
+        background-color: rgba(244, 240, 230, 0.3);
+        border-inline-start: 3px solid var(--color-accent-primary);
+    }
+
+    cite {
+        display: block;
+        font-family: var(--font-accent-serif);
+        font-size: 1.1rem;
+        color: var(--color-accent-primary);
+        font-style: normal;
+        margin-bottom: var(--space-xs);
+    }
+
+    .application-note {
+        font-size: 0.95rem;
+        color: var(--color-text-muted);
+        margin-bottom: 0;
+    }
+}
