@@ -1,5 +1,4 @@
 @layer layout {
-    /* Combined structural spread layout variants */
     .gallery-container-past,
     .gallery-container-present,
     .gallery-container-future {
@@ -11,7 +10,6 @@
 }
 
 @layer components {
-    /* Grouped list slots for past, present, and future zones */
     .selection-list-past,
     .selection-list-present,
     .selection-list-future {
@@ -54,7 +52,6 @@
         transform: translateX(3px);
     }
 
-    /* Combined Display Frames for Spread Positions */
     .image-frame-past,
     .image-frame-present,
     .image-frame-future {
@@ -69,7 +66,6 @@
         box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
 
-    /* Combined Card Image Previews */
     .img-preview-past,
     .img-preview-present,
     .img-preview-future {

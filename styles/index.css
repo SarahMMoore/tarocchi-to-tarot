@@ -1,50 +1,55 @@
 /* ==========================================================================
-   index.css | Strict Grid Architecture Updates
+   INDEX LAYOUT SECTOR
    ========================================================================== */
-
 @layer layout {
-    /* Main structural layout grid configuration */
-    .site-index {
+    .global-backdrop {
         display: grid;
-        grid-template-columns: 4fr 6fr; /* 40% left column, 60% right column */
-        gap: 2.5rem 4rem;
-        align-items: start;
-        inline-size: 100%;
-        max-inline-size: var(--layout-max-width, 1400px);
-        margin-block: var(--space-fluid-md, 2.5rem);
+        grid-template-columns: 1fr;
+        justify-items: center;
+        width: 100%;
+        max-width: var(--layout-max-width, 1440px);
         margin-inline: auto;
         padding-inline: var(--space-fluid-sm, 2rem);
         box-sizing: border-box;
     }
-
-    /* ROW 1: FULL WIDTH BRANDING BANNER */
-    .branding-header {
-        grid-column: 1 / -1; /* Spans across both tracks at the very top */
+    
+    .main-header {
+        width: 100%;
         margin-block-end: 1rem;
-    }
-
-    /* ROW 2 - COLUMN 1: STANDALONE LOGO */
-    .hero-logo-frame {
-        grid-column: 1; /* Locks the logo completely by itself in the left lane */
-        grid-row: 2;    /* Aligns horizontally with the cards on the right */
-        display: flex;
-        justify-content: flex-start;
-        inline-size: 100%;
+        background-color: var(--color-bg-secondary, rgba(255, 255, 255, 0.92));
+        padding: 2.5rem;
+        border: 0.75px solid var(--color-accent-primary, #1b4d3e);
+        border-radius: var(--border-radius-md, 4px);
+        box-shadow: 0px 4px 15px rgba(27, 77, 62, 0.06);
         box-sizing: border-box;
     }
 
-    /* ROW 2 - COLUMN 2: 2-COLUMN CARD PORTAL */
-    .directory-portal {
-        grid-column: 2; /* Locks the portal entirely in the right lane */
-        grid-row: 2;    /* Aligns horizontally with the standalone logo */
+    .site-index {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2 columns inside the right track */
+        grid-template-columns: 4fr 6fr; 
+        gap: 2.5rem 4rem;
+        align-items: start;
+        width: 100%;
+        margin-block: var(--space-fluid-md, 2.5rem);
+        box-sizing: border-box;
+    }
+    
+    .hero-logo-frame {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        box-sizing: border-box;
+        contain-intrinsic-size: 280px 280px; 
+    }
+
+    .chapter-portal {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
         gap: 2rem;
     }
 
-    /* ROW 3: FULL WIDTH FOOTER BASELINE */
     .site-footer {
-        grid-column: 1 / -1; /* Spans across both tracks at the bottom */
+        width: 100%;
         display: flex;
         justify-content: space-between; 
         align-items: center;
@@ -54,21 +59,14 @@
     }
 }
 
+/* ==========================================================================
+   INDEX COMPONENT MODULES
+   ========================================================================== */
 @layer components {
-    /* TOP HEADER BOX PANEL */
-    .branding-header {
-        background-color: var(--color-bg-secondary, rgba(255, 255, 255, 0.92));
-        padding: 2.5rem;
-        border: 0.75px solid var(--color-accent-primary, #1c352d);
-        border-radius: 4px;
-        box-shadow: 0px 4px 15px rgba(27, 77, 62, 0.06);
-        box-sizing: border-box;
-    }
-
     .cover-title {
-        font-family: var(--font-heading), 'IM Fell Great Primer SC', serif;
-        color: var(--color-accent-primary, #1c352d);
-        font-size: 3rem;
+        font-family: var(--font-heading);
+        color: var(--color-accent-primary);
+        font-size: var(--font-size-h1, 3rem); 
         text-transform: uppercase;
         letter-spacing: 0.5px;
         margin-block-start: 0;
@@ -77,49 +75,41 @@
     }
 
     .cover-description {
-        font-family: var(--font-body), 'Lora', Georgia, serif;
+        font-family: var(--font-body);
         font-size: 1.05rem;
         line-height: 1.7;
-        color: var(--color-text-primary, #2b2b2a);
-        max-width: 85ch;
+        color: var(--color-text-primary);
+        max-width: var(--container-normal-width, 76ch); 
         margin: 0;
     }
 
-    /* STANDALONE LOGO FRAME SPECIFICATIONS */
     .cover-logo {
         display: block;
-        inline-size: 100%;
-        max-inline-size: 525px; /* Restores size parameters to perfectly balance the right grid stack */
+        width: 100%;
+        max-width: 280px; 
         height: auto;
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 1 / 1; 
         object-fit: contain;
         filter: drop-shadow(0px 6px 12px rgba(43, 43, 42, 0.12));
     }
 
-    /* RIGHT SIDE DIRECTORY CARD SPECS */
-    .directory-card {
-        background: var(--color-bg-secondary, rgba(255, 255, 255, 0.92));
-        border: 0.75px solid var(--color-accent-primary, #1c352d);
-        border-radius: 4px;
+    .chapter-card {
+        background: var(--chapter-card-bg);
+        border: 0.75px solid var(--color-accent-primary);
+        border-radius: var(--border-radius-md, 4px);
         padding: 2rem;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         min-height: 220px;
-        box-shadow: 0px 4px 10px rgba(27, 77, 62, 0.04);
+        box-shadow: var(--chapter-card-shadow);
         box-sizing: border-box;
-        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .directory-card:hover {
-        transform: translateY(-4px);
-        border-color: var(--color-accent-warm, #d9822b);
-        box-shadow: 0px 8px 16px rgba(28, 53, 45, 0.12);
+        transition: transform var(--transition-speed-fast) ease, border-color var(--transition-speed-fast) ease, box-shadow var(--transition-speed-fast) ease;
     }
 
     .card-header h3 {
-        font-family: var(--font-heading), 'IM Fell Great Primer SC', serif;
-        color: var(--color-accent-primary, #1c352d);
+        font-family: var(--font-heading);
+        color: var(--color-accent-primary);
         font-size: 1.25rem;
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -127,10 +117,10 @@
     }
 
     .card-summary {
-        font-family: var(--font-body), 'Lora', Georgia, serif;
+        font-family: var(--font-body);
         font-size: 0.95rem;
         line-height: 1.55;
-        color: var(--color-text-primary, #2b2b2a);
+        color: var(--color-text-primary);
         margin-block-start: 0.5rem;
         margin-block-end: 0;
     }
@@ -142,20 +132,19 @@
     }
 
     .main-chapter-link {
-        font-family: var(--font-heading), 'IM Fell Great Primer', serif;
-        color: var(--color-accent-warm, #d9822b);
+        font-family: var(--font-accent-serif);
+        color: var(--color-accent-warm);
         font-size: 1.05rem;
         font-weight: 700;
         text-decoration: none;
         border-bottom: 1px solid transparent;
-        transition: border-color 0.2s ease;
+        transition: border-color var(--transition-speed-fast) ease;
     }
 
     .main-chapter-link:hover {
-        border-color: var(--color-accent-warm, #d9822b);
+        border-color: var(--color-accent-warm);
     }
 
-    /* PRACTICE DIRECTORY CARD SETS */
     .practical-links-directory {
         display: flex;
         flex-direction: column;
@@ -164,9 +153,9 @@
     }
 
     .directory-section-label {
-        font-family: var(--font-heading), 'IM Fell Great Primer SC', serif;
+        font-family: var(--font-heading);
         font-size: 0.85rem;
-        color: var(--color-text-primary, #2b2b2a);
+        color: var(--color-text-primary);
         text-transform: uppercase;
         letter-spacing: 0.5px;
         margin-block-start: 0.5rem;
@@ -174,87 +163,76 @@
     }
 
     .sub-portal-link {
-        font-family: var(--font-body), 'Lora', Georgia, serif;
+        font-family: var(--font-body);
         font-size: 0.95rem;
-        color: var(--color-accent-primary, #1c352d);
+        color: var(--color-accent-primary);
         text-decoration: underline;
         width: fit-content;
     }
 
     .sub-portal-link:hover {
-        color: var(--color-accent-warm, #d9822b);
+        color: var(--color-accent-warm);
     }
 
-    /* FOOTER ANCHORS */
-    .footer-copyright p {
+    .copyright {
         margin: 0;
-        font-family: var(--font-body), 'Lora', Georgia, serif;
+        font-family: var(--font-body);
         font-size: 0.9rem;
-        color: var(--color-text-primary, #2b2b2a);
+        color: var(--color-text-muted);
     }
 
-    .footer-nav {
+    .footer-links {
         display: flex;
-        gap: 2rem;
+        gap: var(--space-md, 1.5rem);
     }
 
-    .footer-link {
-        font-family: var(--font-heading), 'IM Fell Great Primer SC', serif;
-        color: var(--color-accent-primary, #1c352d);
+    .footer-links a {
+        font-family: var(--font-heading);
+        color: var(--color-accent-primary);
         font-size: 0.9rem;
         text-decoration: none;
         text-transform: uppercase;
         letter-spacing: 0.5px;
         border-bottom: 1px solid transparent;
-        transition: border-color 0.2s ease, color 0.2s ease;
+        transition: border-color var(--transition-speed-fast) ease, color var(--transition-speed-fast) ease;
     }
 
-    .footer-link:hover {
-        color: var(--color-accent-warm, #d9822b);
-        border-color: var(--color-accent-warm, #d9822b);
+    .footer-links a:hover {
+        color: var(--color-accent-warm);
+        border-color: var(--color-accent-warm);
     }
 }
 
+/* ==========================================================================
+   INDEX RESPONSIVE ADAPTABILITY
+   ========================================================================== */
 @layer overrides {
-    /* Responsive stacking rules for medium displays */
     @media (max-width: 64rem) {
         .site-index {
             grid-template-columns: 1fr;
             gap: 3rem;
-            padding-inline: var(--space-fluid-sm, 1.5rem);
         }
         
-        .branding-header,
+        .main-header,
         .hero-logo-frame,
-        .directory-portal,
+        .chapter-portal,
         .site-footer {
-            grid-column: 1;
-            grid-row: auto; /* Drops items sequentially in a continuous single lane */
+            grid-column: auto;
+            grid-row: auto;
         }
 
-        .branding-header {
-            text-align: center;
-        }
-
-        .cover-description {
-            margin-inline: auto;
-        }
-
-        .hero-logo-frame {
-            justify-content: center; /* Center-aligns the logo when layout collapses */
-        }
+        .main-header { text-align: center; }
+        .cover-description { margin-inline: auto; }
+        .hero-logo-frame { justify-content: center; }
     }
 
-    /* Responsive stacking rules for portrait phones */
     @media (max-width: 40rem) {
-        .directory-portal {
-            grid-template-columns: 1fr; /* Cards fall into a neat column roll */
+        .chapter-portal {
+            grid-template-columns: 1fr;
             gap: 1.5rem;
         }
 
-        .cover-title {
-            font-size: 2.2rem;
-        }
+        .cover-title { font-size: 2.2rem; }
 
         .site-footer {
             flex-direction: column-reverse; 
@@ -262,18 +240,9 @@
             text-align: center;
         }
 
-        .footer-nav {
+        .footer-links {
             flex-direction: column;
             gap: 1rem;
-        }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-        .directory-card,
-        .main-chapter-link,
-        .footer-link {
-            transition: none !important;
-            transform: none !important;
         }
     }
 }

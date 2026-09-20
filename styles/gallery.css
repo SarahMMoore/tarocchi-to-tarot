@@ -9,7 +9,6 @@
 }
 
 @layer components {
-    /* Hide raw interactive checkboxes globally */
     input[type="radio"][name="list-toggle"] {
         display: none;
     }
@@ -42,7 +41,6 @@
         transition: all 0.2s ease-in-out;
     }
 
-    /* Hover feedback for list items */
     .selection-list li label:hover {
         background: var(--color-bg-primary);
         border-color: var(--color-accent-primary);
