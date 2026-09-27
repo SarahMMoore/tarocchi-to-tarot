@@ -7,73 +7,75 @@
     <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/index.css">
 </head>
-<body id="index-cover">
+
+<body id="index">
+    <!-- Global wrapper containing the fixed, stationary background artwork -->
     <div class="global-backdrop">
-        <header class="main-header">
-            <h1 class="cover-title">Tarocchi to Tarot</h1>
-            <p class="cover-description">
-                An archival history mapping the structural development of the Tarot deck. Follow its design progression—beginning as 15th-century Italian playing cards, shifting into global frameworks for psychoanalysis, and establishing the foundational visual training data modern Large Language Models use today.
-            </p>
-        </header>
         
-                <main class="site-index">
-            <!-- Hero Artwork Layer -->
-            <section class="hero-logo-frame">
-                <img src="assets/illuminated-t.webp" srcset="assets/illuminated-t.webp 1x, assets/illuminated-t@2x.webp 2x" alt="Illuminated historic woodcut letter T framing astronomical paths" class="cover-logo" width="280" height="280" loading="eager"/>
-            </section>
-
-            <!-- Pattern 2: Chapter Portal Intentional Grid -->
-            <section class="chapter-portal">
-                <a href="chapters/genesis.html" class="chapter">
-                    <div>
+        <!-- Main structural canvas holding the layout center -->
+        <div class="table-of-contents-frame">
+            
+            <header class="index-header"> 
+                <div class="logo-block">
+                    <!-- FIXED: Replaced split text spans with a singular semantic header logo image, 
+                         backed by a rich descriptive alt string for accessibility compliance -->
+                    <img src="assets/illuminated-t.webp" 
+                         alt="Tarocchi to Tarot logo: An ornate historic green and gold woodcut letter T framed by decorative Renaissance vines, with the text 'tarocchi to tarot' stacked in lowercase gold serif typography on the right." 
+                         class="cover-logo" 
+                         loading="eager"/>
+                </div>
+                
+                <nav class="header-utility-nav" aria-label="Header Utilities">
+                    <a href="#">Card Layouts</a>
+                    <a href="#">Deck Gallery</a>
+                </nav>
+            </header>
+            
+            <main class="site-index">
+                <section class="description-column" aria-label="Project Abstract Summary">
+                    <p>An archival history mapping the structural development of the Tarot deck. Follow its design progression—beginning as 15th-century Italian playing cards, shifting into global frameworks for psychoanalysis, and establishing the foundational visual training data modern Large Language Models use today.</p>
+                </section>
+            
+                <section class="chapters-column" aria-label="Chapters Directory Link Map">
+                    <a href="chapters/genesis.html" class="chapter-card">
                         <h2>Chapter One</h2>
-                        <p class="card-summary">Explore the early historical playing frameworks, global roots, and late medieval parlor gaming origins of the deck.</p>
-                    </div>
-                    <span class="card-action">The Genesis of Play &rarr;</span>
-                </a>
-
-                <a href="chapters/mechanics.html" class="chapter">
-                    <div>
+                        <h3>The Genesis of Play</h3>
+                    </a>
+                    
+                    <a href="chapters/mechanics.html" class="chapter-card">
                         <h2>Chapter Two</h2>
-                        <p class="card-summary">An in-depth look at trick-taking structures, traditional asset values, and historical rules on how to play.</p>
-                    </div>
-                    <span class="card-action">System Mechanics &rarr;</span>
-                </a>
+                        <h3>System Mechanics</h3>
+                    </a>
 
-                <a href="chapters/esoteric.html" class="chapter">
-                    <div>
+                    <a href="chapters/esoteric.html" class="chapter-card">
                         <h2>Chapter Three</h2>
-                        <p class="card-summary">Tracing the transformation during the Enlightenment through to the secret societies of the Order of the Golden Dawn.</p>
-                    </div>
-                    <span class="card-action">The Esoteric Shift &rarr;</span>
-                </a>
-
-                <a href="chapters/spread.html" class="chapter">
-                    <div>
+                        <h3>The Esoteric Shift</h3>
+                    </a>
+                    
+                    <a href="chapters/spread.html" class="chapter-card">
                         <h2>Chapter Four</h2>
-                        <p class="card-summary">The integration of psychoanalysis, daily readings, and interactive digital canvas layout engines.</p>
-                    </div>
-                    <span class="card-action">The Modern Spread &rarr;</span>
-                </a>
+                        <h3>The Modern Spread</h3>
+                    </a>
 
-                <a href="chapters/frontier.html" class="chapter">
-                    <div>
+                    <a href="chapters/frontier.html" class="chapter-card">
                         <h2>Chapter Five</h2>
-                        <p class="card-summary">Relational database systems, structural modern metadata collections, and card image analysis frameworks.</p>
-                    </div>
-                    <span class="card-action">The Generative Frontier &rarr;</span>
-                </a>
-
-        </main>
-
+                        <h3>The Generative Frontier</h3>
+                    </a>
+                </section>
+            </main>
         
-        <footer class="site-footer">
-            <p class="copyright">Tarocchi to Tarot &copy; 2026 Sarah Morrigan Powers Moore. All rights reserved.</p>
-            <nav class="footer-links" aria-label="Footer Navigation">
-                <a href="reference-pages/disclosure.html">AI Disclosure</a>
-                <a href="reference-pages/bibliography.html">Bibliography & Citations</a>
-            </nav>
-        </footer>
+            <!-- Configured structural two-column grid layout footer -->
+            <footer class="site-footer">
+                <div class="footer-brand-meta">
+                    <p class="title">Tarocchi to Tarot</p>
+                    <p class="copyright">&copy; 2026 Sarah Morrigan Powers Moore. All rights reserved.</p>
+                </div>
+                <nav class="footer-links" aria-label="Footer Citations Menu">
+                    <a href="reference-pages/disclosure.html">AI Disclosure</a>
+                    <a href="reference-pages/bibliography.html">Bibliography &amp; Citations</a>
+                </nav>
+            </footer>
+        </div>
     </div>
 </body>
 </html>

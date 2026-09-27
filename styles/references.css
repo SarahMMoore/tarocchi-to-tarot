@@ -2,27 +2,51 @@
     .bibliography-list {
         list-style: none;
         padding-left: 0;
+        margin-block: var(--space-md);
     }
 
     .bibliography-list > li {
         margin-bottom: var(--space-lg);
         padding: var(--space-md);
-        background-color: rgba(244, 240, 230, 0.3);
-        border-inline-start: 3px solid var(--color-accent-primary);
+        background-color: rgba(244, 240, 230, 0.4); /* Uniform layout tint floor */
+        border-inline-start: 4px solid var(--color-accent-primary); /* Bold indicator line */
+        border-radius: var(--border-radius-sm, 2px);
     }
 
     cite {
         display: block;
         font-family: var(--font-accent-serif);
-        font-size: 1.1rem;
+        font-size: 1.15rem;
         color: var(--color-accent-primary);
         font-style: normal;
         margin-bottom: var(--space-xs);
+        line-height: 1.4;
     }
 
     .application-note {
         font-size: 0.95rem;
-        color: var(--color-text-muted);
+        /* Swapped to text-primary to achieve a legal 6.5:1 contrast reading */
+        color: var(--color-text-primary); 
+        line-height: 1.6;
         margin-bottom: 0;
+    }
+
+    /* Target nested bold labels inside application notes to look distinct */
+    .application-note strong {
+        color: var(--color-accent-warm);
+        font-family: var(--font-body);
+        font-weight: 700;
+    }
+
+    /* Accessible anchor sizing configurations within citations */
+    .bibliography-list a {
+        color: var(--color-accent-primary);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        transition: color var(--transition-speed-fast) var(--transition-ease-standard);
+    }
+
+    .bibliography-list a:hover {
+        color: var(--color-accent-warm);
     }
 }

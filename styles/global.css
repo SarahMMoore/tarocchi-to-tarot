@@ -1,12 +1,12 @@
 /* ==========================================================================
-   ARCHITECTURAL LAYERS & FONTS INITIALIZATION
+   CSS LAYERS SETUP ENTRY CONFIGURATION
    ========================================================================== */
 @layer reset, base, layout, components, utilities, overrides;
 
-    @import url('https://fonts.googleapis.com/css2?family=Aleo:wght@700&family=IM+Fell+English+SC&family=Lato:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&family=IM+Fell+Great+Primer:ital@0;1&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 
 /* ==========================================================================
-   STRUCTURAL RESET ENGINE
+   RESET LAYER
    ========================================================================== */
 @layer reset {
     *, *::before, *::after {
@@ -22,14 +22,14 @@
     }
 
     img {
-        max-width: 100%;
         display: block;
+        max-width: 100%;
         height: auto;
     }
 }
 
 /* ==========================================================================
-   SYSTEM DESIGN TOKENS & BASE INTERFACES
+   BASE LAYER (Design Tokens, Elements, & Global Background Mechanics)
    ========================================================================== */
 @layer base {
     :root {
@@ -45,7 +45,8 @@
         --color-renaissance-ochre: #c5a059;
         --color-antique-burnished-gold: #aa7c11;
 
-        --font-heading: "IM Fell English SC", "Cinzel", Georgia, serif;
+        --font-heading: "IM Fell English", "Cinzel", Georgia, serif; 
+        --font-heading-caps: "IM Fell English SC", "Cinzel", Georgia, serif;
         --font-accent-serif: "IM Fell Great Primer", Georgia, serif;
         --font-body: "Lora", Georgia, serif;
 
@@ -79,244 +80,116 @@
 
     body {
         background-color: var(--color-bg-primary);
-        color: var(--color-text-primary);
         font-family: var(--font-body);
         font-size: var(--font-size-base);
+        color: var(--color-text-primary);
     }
 
-    h1, h2, h3, h4 {
-        font-family: var(--font-heading);
-        color: var(--color-accent-primary);
-        font-weight: normal;
-        margin-block-start: 1.25em;
-        line-height: 1.2;
-    }
-
-    footer {
-        border-top: 1px solid rgba(43, 43, 42, 0.1);
-        background-color: var(--color-bg-secondary);
-        margin-block-start: auto;
-    }
-
+    /* --- Mobile Baseline Viewport Configurations --- */
     .global-backdrop {
-        min-height: 100vh;
+        background-color: var(--color-bg-primary);
+        width: 100%;
         display: flex;
         flex-direction: column;
-        position: relative;
-        background-color: var(--color-bg-primary); 
+        align-items: center;
+        min-height: 100vh;
     }
 
-     @media (min-width: 48rem) {
+    .site-footer {
+        background-color: var(--color-accent-primary);
+        width: 100%;
+        color: var(--color-illuminated-gold);
+        padding-block: var(--space-md, 1.5rem);
+        padding-inline: var(--space-fluid-md, 1.5rem);
+        
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--space-md, 1.25rem);
+        text-align: center;
+    }
+
+    .site-footer a {
+        text-decoration: none;
+        font-size: 0.95rem;
+        color: var(--color-illuminated-gold);
+        transition: color var(--transition-speed-fast) var(--transition-ease-standard);
+    }
+
+    .site-footer a:hover {
+        color: var(--color-accent-warm);
+        text-decoration: underline;
+    }
+
+    .site-footer .title {
+        font-family: var(--font-heading);
+        font-size: 1.15rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .site-footer .copyright {
+        font-size: 0.85rem;
+        opacity: 0.8;
+    }
+
+    /* --- Tablet & Medium Viewport Adaptations (425px and up) --- */
+    @media (width >= 425px) {
         .global-backdrop {
-            background-image: url('../assets/background-image.webp');  
+            position: relative;
+            background-size: cover;
+            background-position: center;
             background-repeat: no-repeat;
-            background-position: center top;
-            background-size: 120% auto;
-            background-attachment: fixed; 
+            background-image: url("../assets/background-image-768.webp");
+            background-attachment: fixed; /* Stationary background scroll engine lock */
+        }
+
+        .site-footer {
+            /* Snaps into two symmetrical horizontal columns */
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            text-align: left;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: flex-end;
+            gap: var(--space-lg);
+            margin: 0;
         }
     }
 
-    .global-backdrop::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-color: rgba(252, 250, 242, 0.88); 
-        z-index: 0;
-        pointer-events: none;
-    }
-
-    .main-header, .site-index, .chapter-page, footer {
-        position: relative;
-        z-index: 1;
+    /* --- Large Monitor & Desktop Artboard Framework (1024px and up) --- */
+    @media (width >= 1024px) {
+        .global-backdrop {
+            background-image: url("../assets/background-image-1440.webp");
+            background-attachment: fixed; /* Keeps background stationary on large layouts */
+            width: 100%;
+        }
     }
 }
 
 /* ==========================================================================
-   UTILITIES & COMPONENT INTERACTION STATES
+   OVERRIDES LAYER: ACCESSIBILITY, CONTRAST, & KEYBOARD FOCUS TRACKS
    ========================================================================== */
-@layer utilities {
-    .u-text-center {     
-        text-align: center !important;
-        background-color: revert;
-        border: none;
-        box-shadow: none;
-        margin: 0;
-        padding: 0; 
+@layer overrides {
+    /* 1. Focus path accessibility tracking indicator rings */
+    a:focus-visible, 
+    .chapter:focus-visible, 
+    summary:focus-visible {
+        outline: 3px solid var(--color-accent-warm);
+        outline-offset: 4px;
     }
 
-    .u-margin-bottom-none { 
-        margin-bottom: 0 !important; 
-    }
-
-    .u-hide-screen { 
-        display: none !important; 
-    }
-
-    .nav-link:hover,
-    .footer-links a:hover {
-        color: var(--color-accent-warm);
-    }
-
-    .chapter-card {
-        will-change: transform;
-    }
-
-    .chapter-card:hover {
-        transform: translateY(-4px);
-        border-color: var(--color-accent-warm);
-        box-shadow: var(--chapter-card-hover-shadow);
-    }
-
-    .nav-link[aria-current="page"] {
-        color: var(--color-accent-primary);
-        border-bottom: 2px solid var(--color-accent-primary);
-        padding-bottom: var(--space-xs);
-    }
-
-    .card-link[aria-disabled="true"] {
-        color: var(--color-text-muted);
-        pointer-events: none;
-        opacity: 0.5;
-    }
-
+    /* 2. Global media reduction triggers to safely suppress animations */
     @media (prefers-reduced-motion: reduce) {
-        *, ::before, ::after {
+        *, *::before, *::after {
             animation-duration: 0.01ms !important;
             animation-iteration-count: 1 !important;
             transition-duration: 0.01ms !important;
             scroll-behavior: auto !important;
         }
-        .chapter-card:hover {
-            transform: none !important;
-        }
-    }
-}
-
-/* ==========================================================================
-   ACCESSIBLE PRINT DESIGN SYSTEM INTERFACES
-   ========================================================================== */
-@media print {
-    .site-header, .footer-links, .global-backdrop::before, .global-backdrop {
-        display: none !important;
-        background-image: none !important;
-    }
-
-    body {
-        background: #ffffff !important;
-        color: #000000 !important;
-        font-size: 12pt;
-    }
-
-    .chapter-page {
-        max-width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    h1, h2, h3, table, tr { 
-        page-break-inside: avoid; 
-    }
-    
-    cite { 
-        font-weight: bold; 
-        color: #000000 !important; 
-    }
-
-    th {
-        background-color: #f0f0f0 !important;
-        color: #000000 !important;
-        border-bottom: 2px solid #000000 !important;
-    }
-}
-/* ==========================================================================
-   SITE-WIDE LAYOUT COMPONENTS
-   ========================================================================== */
-@layer components {
-    .site-header {
-        background-color: var(--header-blur-bg);
-        border-bottom: 1px solid rgba(43, 43, 42, 0.1);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-    }
-
-    .header-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: var(--layout-max-width);
-        margin: 0 auto;
-        padding: var(--space-sm) var(--space-fluid-md);
-    }
-
-    .logo-link {
-        display: flex;
-        align-items: center;
-        gap: var(--space-sm);
-        text-decoration: none;
-    }
-
-    .nav-logo {
-        width: 45px;
-        height: 45px; 
-        aspect-ratio: 1 / 1;
-        object-fit: contain;
-    }
-
-    .site-logo h1 { font-size: 1.5rem; }
-
-    .site-nav ul {
-        list-style: none;
-        display: flex;
-        gap: var(--space-md);
-    }
-
-    .nav-link {
-        text-decoration: none;
-        color: var(--color-text-primary);
-        font-family: var(--font-heading);
-        font-size: 0.95rem;
-        padding: var(--space-xs);
-        transition: color var(--transition-speed-fast) var(--transition-ease-standard);
-    }
-
-    .site-footer {
-        max-width: var(--layout-max-width);
-        margin: 0 auto;
-        padding: var(--space-lg) var(--space-fluid-md);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 0.88rem;
-        color: var(--color-text-muted);
-    }
-
-    .footer-links {
-        display: flex;
-        gap: var(--space-md);
-    }
-
-    .footer-links a {
-        text-decoration: none;
-        color: var(--color-text-muted);
-        transition: color var(--transition-speed-fast) var(--transition-ease-standard);
-    }
-}
-
-/* ==========================================================================
-   BREAKPOINT MEDIA OVERRIDES
-   ========================================================================== */
-@layer overrides {
-    @media (max-width: 48rem) {
-        .header-container, .site-footer {
-            flex-direction: column;
-            text-align: center;
-            gap: var(--space-sm);
-        }
-        .site-nav ul {
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: var(--space-sm);
+        .global-backdrop {
+            background-image: none !important;
+            background-color: var(--color-bg-primary) !important;
         }
     }
 }

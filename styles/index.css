@@ -1,248 +1,196 @@
 /* ==========================================================================
-   INDEX LAYOUT SECTOR
+   LAYOUT LAYER
+   Handles structural grids, dimensions, positions, and column distribution.
    ========================================================================== */
 @layer layout {
-    .global-backdrop {
-        display: grid;
-        grid-template-columns: 1fr;
-        justify-items: center;
-        width: 100%;
-        max-width: var(--layout-max-width, 1440px);
+
+    .table-of-contents-frame {
+        inline-size: 100%;
+        max-inline-size: 944px; 
+        margin-block: var(--space-fluid-lg);
         margin-inline: auto;
-        padding-inline: var(--space-fluid-sm, 2rem);
-        box-sizing: border-box;
-    }
-    
-    .main-header {
-        width: 100%;
-        margin-block-end: 1rem;
-        background-color: var(--color-bg-secondary, rgba(255, 255, 255, 0.92));
-        padding: 2.5rem;
-        border: 0.75px solid var(--color-accent-primary, #1b4d3e);
-        border-radius: var(--border-radius-md, 4px);
-        box-shadow: 0px 4px 15px rgba(27, 77, 62, 0.06);
-        box-sizing: border-box;
+        padding-inline: var(--space-fluid-md);
+        padding-block: var(--space-fluid-md);
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-fluid-sm);
     }
 
+    /* Sets up a side-by-side flex layout row for the banner space */
+    .index-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; /* FIXED: Centers both columns evenly on the cross-axis */
+        width: 100%;
+        padding-inline: var(--space-md);
+        padding-block-start: var(--space-md);
+        padding-block-end: var(--space-md);
+    }
+    
+    .logo-block {
+        display: flex;
+        align-items: center; /* FIXED: Centers the logo vector content cleanly */
+    }
+
+    /* Scales the full unified logo graphic beautifully to match your vector layout proportions */
+    .cover-logo {
+        width: auto;
+        height: clamp(110px, 12vw, 155px); /* Matches the prominent height in your mockup image */
+        display: block;
+        margin-block-end: 0; /* FIXED: Stripped negative offset to allow pure vertical centering */
+    }
+
+    /* Pushes your utility navigation menu links to the top right */
+    .header-utility-nav {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-xs);
+        text-align: right;
+        padding-block-start: var(--space-xs);
+        align-items: center;    
+    }
+
+    /* Mobile Content Container Flow */
     .site-index {
-        display: grid;
-        grid-template-columns: 4fr 6fr; 
-        gap: 2.5rem 4rem;
-        align-items: start;
-        width: 100%;
-        margin-block: var(--space-fluid-md, 2.5rem);
-        box-sizing: border-box;
-    }
-    
-    .hero-logo-frame {
         display: flex;
-        justify-content: flex-start;
-        width: 100%;
-        box-sizing: border-box;
-        contain-intrinsic-size: 280px 280px; 
+        flex-direction: column;
+        gap: var(--space-fluid-md);
+        padding-inline: var(--space-sm);
     }
 
-    .chapter-portal {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 2rem;
+    .description-column p {
+        margin-inline-end: 0;
     }
 
-    .site-footer {
-        width: 100%;
+    .chapters-column {
         display: flex;
-        justify-content: space-between; 
-        align-items: center;
-        padding-block-start: 2rem;
-        margin-block-start: 4rem;
-        border-top: 1px solid rgba(43, 43, 42, 0.15); 
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+
+    /* ----------------------------------------------------------------------
+       Desktop Responsive Layout Realignment (820px and wider)
+       ---------------------------------------------------------------------- */
+    @media (width >= 820px) {
+        /* FIXED: Disables mobile top-heavy padding metrics and forces true right alignment */
+        .header-utility-nav {
+            padding-block-start: 0 !important;
+            align-items: flex-end;
+            align-self: center;
+        }
+
+        .site-index {
+            display: grid;
+            /* Recreates the asymmetrical split from your wireframe panel */
+            grid-template-columns: 1.15fr 0.85fr; 
+            align-items: start;
+            gap: var(--space-xl);
+            margin-block-start: var(--space-md);
+        }
+
+        .description-column p {
+            padding-inline-end: var(--space-md);
+        }
     }
 }
 
 /* ==========================================================================
-   INDEX COMPONENT MODULES
+   COMPONENTS LAYER
+   Handles localized styling typography, link states, borders, and decorations.
    ========================================================================== */
 @layer components {
-    .cover-title {
-        font-family: var(--font-heading);
-        color: var(--color-accent-primary);
-        font-size: var(--font-size-h1, 3rem); 
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        margin-block-start: 0;
-        margin-block-end: 1rem;
-        line-height: 1.15;
-    }
-
-    .cover-description {
-        font-family: var(--font-body);
-        font-size: 1.05rem;
-        line-height: 1.7;
+    #index {
+        background-color: var(--color-bg-primary); 
         color: var(--color-text-primary);
-        max-width: var(--container-normal-width, 76ch); 
-        margin: 0;
     }
 
-    .cover-logo {
-        display: block;
-        width: 100%;
-        max-width: 280px; 
-        height: auto;
-        aspect-ratio: 1 / 1; 
-        object-fit: contain;
-        filter: drop-shadow(0px 6px 12px rgba(43, 43, 42, 0.12));
+    .table-of-contents-frame {
+        background-color: var(--color-renaissance-ochre);
+        /* Generates the bold crimson edge board frame from your design wireframe */
+        border-inline-start: 15px solid var(--color-accent-warm);
+        box-shadow: 0 20px 50px rgba(43, 43, 42, 0.3);
     }
 
-    .chapter-card {
-        background: var(--chapter-card-bg);
-        border: 0.75px solid var(--color-accent-primary);
-        border-radius: var(--border-radius-md, 4px);
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        min-height: 220px;
-        box-shadow: var(--chapter-card-shadow);
-        box-sizing: border-box;
-        transition: transform var(--transition-speed-fast) ease, border-color var(--transition-speed-fast) ease, box-shadow var(--transition-speed-fast) ease;
+    .index-header {
+        background-color: var(--color-accent-primary);
+        border-block-end: 2px solid var(--color-antique-burnished-gold); 
     }
 
-    .card-header h3 {
+    .header-utility-nav a {
         font-family: var(--font-heading);
-        color: var(--color-accent-primary);
-        font-size: 1.25rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin: 0;
-    }
-
-    .card-summary {
-        font-family: var(--font-body);
-        font-size: 0.95rem;
-        line-height: 1.55;
-        color: var(--color-text-primary);
-        margin-block-start: 0.5rem;
-        margin-block-end: 0;
-    }
-
-    .card-navigation {
-        display: flex;
-        justify-content: flex-end;
-        margin-block-start: 1.5rem;
-    }
-
-    .main-chapter-link {
-        font-family: var(--font-accent-serif);
-        color: var(--color-accent-warm);
-        font-size: 1.05rem;
-        font-weight: 700;
+        color: var(--color-illuminated-gold);
         text-decoration: none;
-        border-bottom: 1px solid transparent;
-        transition: border-color var(--transition-speed-fast) ease;
-    }
-
-    .main-chapter-link:hover {
-        border-color: var(--color-accent-warm);
-    }
-
-    .practical-links-directory {
-        display: flex;
-        flex-direction: column;
-        gap: 0.4rem;
-        margin-block-start: 0.75rem;
-    }
-
-    .directory-section-label {
-        font-family: var(--font-heading);
-        font-size: 0.85rem;
-        color: var(--color-text-primary);
-        text-transform: uppercase;
+        font-size: clamp(1.2rem, 1.4vw, 1.5rem);
+        line-height: 1.3;
         letter-spacing: 0.5px;
-        margin-block-start: 0.5rem;
-        opacity: 0.8;
+        transition: color var(--transition-speed-fast) var(--transition-ease-standard);
     }
 
-    .sub-portal-link {
-        font-family: var(--font-body);
-        font-size: 0.95rem;
-        color: var(--color-accent-primary);
+    .header-utility-nav a:hover,
+    .header-utility-nav a:focus-visible {
+        color: var(--color-bg-primary);
         text-decoration: underline;
-        width: fit-content;
+        text-underline-offset: 4px;
     }
 
-    .sub-portal-link:hover {
-        color: var(--color-accent-warm);
+    .description-column p {
+        font-family: var(--font-accent-serif);
+        font-size: clamp(1.35rem, 2vw, 1.85rem);
+        line-height: 1.45;
+        text-align: left; 
+        color: var(--color-text-primary);
     }
 
-    .copyright {
-        margin: 0;
-        font-family: var(--font-body);
-        font-size: 0.9rem;
-        color: var(--color-text-muted);
-    }
-
-    .footer-links {
+    /* Chapter Menus Right Column Card Modifiers */
+    .chapter-card {
         display: flex;
-        gap: var(--space-md, 1.5rem);
-    }
-
-    .footer-links a {
-        font-family: var(--font-heading);
-        color: var(--color-accent-primary);
-        font-size: 0.9rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: var(--space-sm) var(--space-md);
         text-decoration: none;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        border-bottom: 1px solid transparent;
-        transition: border-color var(--transition-speed-fast) ease, color var(--transition-speed-fast) ease;
-    }
-
-    .footer-links a:hover {
-        color: var(--color-accent-warm);
-        border-color: var(--color-accent-warm);
-    }
-}
-
-/* ==========================================================================
-   INDEX RESPONSIVE ADAPTABILITY
-   ========================================================================== */
-@layer overrides {
-    @media (max-width: 64rem) {
-        .site-index {
-            grid-template-columns: 1fr;
-            gap: 3rem;
-        }
+        background-color: var(--color-accent-primary);
+        color: var(--color-illuminated-gold) !important;
         
-        .main-header,
-        .hero-logo-frame,
-        .chapter-portal,
-        .site-footer {
-            grid-column: auto;
-            grid-row: auto;
-        }
-
-        .main-header { text-align: center; }
-        .cover-description { margin-inline: auto; }
-        .hero-logo-frame { justify-content: center; }
+        /* Recreates the thin-and-thick custom double lines precisely from your vector boards */
+        border: 4px double var(--color-renaissance-ochre);
+        position: relative;
     }
 
-    @media (max-width: 40rem) {
-        .chapter-portal {
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
+    /* Inner inset accent accent fine line layout layer configuration */
+    .chapter-card::after {
+        content: "";
+        position: absolute;
+        inset: 4px;
+        border: 1px solid var(--color-renaissance-ochre);
+        pointer-events: none;
+    }
 
-        .cover-title { font-size: 2.2rem; }
+    .chapter-card:hover {
+        background-color: var(--color-accent-warm);
+        transform: translateY(-1px);
+        box-shadow: var(--chapter-card-hover-shadow);
+    }
 
-        .site-footer {
-            flex-direction: column-reverse; 
-            gap: 1.5rem;
-            text-align: center;
-        }
+    .chapter-card h2 {
+        font-family: var(--font-heading);
+        font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+        font-weight: normal;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-block-end: 2px;
+        position: relative;
+        z-index: 2;
+    }
 
-        .footer-links {
-            flex-direction: column;
-            gap: 1rem;
-        }
+    .chapter-card h3 {
+        font-family: var(--font-accent-serif);
+        font-style: italic;
+        font-weight: normal;
+        font-size: clamp(1.15rem, 1.4vw, 1.45rem);
+        margin: 0;
+        position: relative;
+        z-index: 2;
     }
 }

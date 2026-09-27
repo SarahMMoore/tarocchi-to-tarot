@@ -10,6 +10,97 @@
         padding-inline: var(--space-fluid-md);
         flex: 1;
     }
+
+    .table-scroll-container {
+        overflow-x: auto;
+        max-inline-size: 100%;
+        margin-block: 2.5rem;
+        border-radius: var(--border-radius-sm);
+    }
+
+    .table-scroll-container:focus-visible {
+        box-shadow: 0 0 0 3px var(--color-focus-ring);
+        outline: none;
+    }
+
+    .table-scroll-container table {
+        margin-block: 0;
+    }
+
+    .site-header {
+        width: 100%;
+        background-color: var(--color-accent-primary, #1b4d3e); /* Dark green background */
+        border-bottom: 2px solid var(--color-antique-burnished-gold, #aa7c11);
+        padding-block: var(--space-sm, 1rem);
+        position: relative;
+        z-index: 10;
+        box-shadow: var(--chapter-card-shadow);
+    }
+
+    .header-container {
+        max-width: var(--layout-max-width, 1440px);
+        margin-inline: auto;
+        padding-inline: var(--space-fluid-md, 1.5rem);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-sm, 1rem);
+    }
+
+    /* Logo link text configuration */
+    .logo-link {
+        text-decoration: none;
+        display: inline-block;
+        transition: transform var(--transition-speed-fast) var(--transition-ease-standard);
+    }
+
+    .site-logo {
+        font-family: var(--font-heading-caps, "IM Fell English SC", serif);
+        font-size: clamp(1.2rem, 1rem + 1vw, 1.75rem);
+        color: var(--color-illuminated-gold, #d4af37); /* Illuminated gold font */
+        letter-spacing: 1.5px;
+    }
+
+    /* Navigation list menu configuration */
+    .site-nav ul {
+        list-style: none;
+        padding-inline-start: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--space-fluid-sm, 1rem);
+    }
+
+    .nav-link {
+        font-family: var(--font-heading, "IM Fell English", serif);
+        font-size: 0.95rem;
+        text-decoration: none;
+        letter-spacing: 0.5px;
+        padding: var(--space-xs, 0.5rem) var(--space-fluid-sm, 0.75rem);
+        color: var(--color-bg-secondary, #f4f0e6); /* Cream fallback for sub-navigation */
+        border-radius: var(--border-radius-sm, 2px);
+        transition: color var(--transition-speed-fast) var(--transition-ease-standard),
+                    background-color var(--transition-speed-fast) var(--transition-ease-standard);
+    }
+
+    /* Accessible focus/hover micro-interactions */
+    .nav-link:hover {
+        color: var(--color-illuminated-gold, #d4af37);
+        background-color: rgba(252, 250, 242, 0.08);
+    }
+
+    .logo-link:hover {
+        transform: scale(1.02);
+    }
+
+    /* Desktop alignment enhancement */
+    @media (width >= 768px) {
+        .header-container {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 0;
+        }
+    }
 }
 
 /* ==========================================================================
@@ -28,12 +119,12 @@
         padding-inline: var(--space-fluid-md);
     }
 
-    @container content-wrapper (inline-size > 600px) {
+    @container content-wrapper (inline-size > 720px) {
         .historical-note {
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 1fr minmax(260px, 0.4fr);
             align-items: flex-start;
-            gap: var(--space-md);
+            gap: var(--space-lg);
         }
         
         .historical-note h3 {
@@ -59,7 +150,6 @@
        ========================================================================== */
     table {
         inline-size: 100%;
-        margin-block: 2.5rem;
         font-size: 0.95rem;
         background-color: rgba(244, 240, 230, 0.5);
         border-radius: var(--border-radius-sm);
@@ -88,11 +178,10 @@
         font-size: 0.85rem;
         letter-spacing: 0.5px;
     }
-}
-/* ==========================================================================
-   CHAPTER NAVIGATION PORTAL COMPONENTS
-   ========================================================================== */
-@layer components {
+
+    /* ==========================================================================
+       CHAPTER NAVIGATION PORTAL COMPONENTS
+       ========================================================================== */
     .chapter-portal {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
@@ -121,9 +210,6 @@
         margin-bottom: var(--space-md);
     }
 
-    /* ==========================================================================
-       HERO TRACK TITLE FRAME BLOCK
-       ========================================================================== */
     .title-section {
         text-align: center;
         background-color: var(--color-accent-primary); 
@@ -142,16 +228,13 @@
     }
 
     .title-section p {
-        color: var(--color-bg-secondary) !important; 
+        color: var(--color-bg-primary) !important; 
         font-family: var(--font-body);
         font-size: 0.95rem;
         max-width: 65ch;
         margin-inline: auto;
     }
 
-    /* ==========================================================================
-       INTERACTIVE LINKS & INTERACTION ACTIONS
-       ========================================================================== */
     .card-action {
         display: inline-block;
         font-family: var(--font-heading);
@@ -176,14 +259,7 @@
         color: var(--color-bg-primary) !important;
         transform: translateY(-2px);
     }
-    
-    .card-action:active {
-        transform: translateY(0);
-    }
 
-    /* ==========================================================================
-       SUBGRID INDEX ALIGNMENT SYSTEM
-       ========================================================================== */
     .card-index-list {
         list-style: none;
         padding-inline-start: 0;
@@ -202,9 +278,7 @@
     }
 
     @supports (grid-template-rows: subgrid) {
-        .card-index-list {
-            grid-auto-rows: max-content;
-        }
+        .card-index-list { grid-auto-rows: max-content; }
         .card-index-list > li {
             grid-row: span 3;
             grid-template-rows: subgrid;
@@ -212,7 +286,8 @@
             padding: var(--space-sm);
         }
     }
-
+}
+@layer components {
     /* ==========================================================================
        NESTED CUSTOM TYPOGRAPHY PSEUDO-BULLETS
        ========================================================================== */
@@ -261,10 +336,9 @@
         position: relative;
         padding-inline-start: 1.25rem;
         font-size: 0.95rem;
-        color: var(--color-text-muted);
+        color: var(--color-text-primary);
     }
 
-    /* Nested Inner Pointer Bullets */
     .content-section ul ul li::before {
         content: "›"; 
         position: absolute;
@@ -297,35 +371,31 @@
         margin-block-start: var(--space-fluid-lg);
     }
 
-    /* ==========================================================================
-       STANDARD GRAPHIC WRAPPERS
-       ========================================================================== */
     figure {
         margin: 2rem auto;
         max-width: 100%;       
         box-sizing: border-box; 
-        padding: 0 1rem;       
+        padding: 0;       
     }
 
     figure img {
         display: block;        
         width: 100%;           
         height: auto;
-        max-width: 100%;
     }
 
     .image-label {
         font-size: 0.85rem; 
-        color: #555; 
+        color: var(--color-text-primary); 
         margin-top: 0.75rem; 
         line-height: 1.4; 
-        text-align: left;
     }
-}
-/* ==========================================================================
-   VIDEO EMBED LAYOUT CONTAINMENT (Rubric Layout Stability Check)
-   ========================================================================== */
-@layer components {
+    
+    .image-label a { color: var(--color-accent-primary); }
+
+    /* ==========================================================================
+       VIDEO EMBED & MEDIA TRANSCRIPTS
+       ========================================================================== */
     .video-container {
         inline-size: 100%;
         max-inline-size: 720px;
@@ -338,7 +408,6 @@
     .video-container iframe {
         display: block;
         inline-size: 100%;
-        block-size: auto; 
         aspect-ratio: 16 / 9; 
         border-radius: var(--border-radius-sm);
         box-shadow: var(--chapter-card-shadow);
@@ -351,14 +420,8 @@
         margin-block-end: 1rem;
     }
 
-    .fallback-link a {
-        color: var(--color-accent-primary);
-        text-decoration: underline;
-    }
+    .fallback-link a { color: var(--color-accent-primary); text-decoration: underline; }
 
-    /* ==========================================================================
-       ACCESSIBLE AUDIO TRANSCRIPT DIRECTORY BLOCKS
-       ========================================================================== */
     .transcript-directory-link {
         font-size: 0.95rem;
         margin-block-start: 1rem;
@@ -372,17 +435,6 @@
         text-underline-offset: 4px;
     }
 
-    .transcript-directory-link a:hover,
-    .fallback-link a:hover {
-        color: var(--color-accent-warm);
-    }
-
-    .transcript-meta {
-        font-style: italic;
-        color: var(--color-accent-warm);
-        margin-block-end: var(--space-md);
-    }
-
     .transcript-block {
         display: grid;
         grid-template-columns: 4rem 1fr;
@@ -393,13 +445,6 @@
 
     .timestamp {
         font-family: var(--font-heading);
-        color: var(--color-accent-primary);
-        font-weight: bold;
-        font-size: 0.9rem;
-    }
-    
-    .back-link {
-        text-decoration: none;
         color: var(--color-accent-primary);
         font-weight: bold;
     }
@@ -419,42 +464,28 @@
         cursor: pointer;
         list-style: none; 
         padding: var(--space-sm);
-        /* KEYBOARD PATH ACCESSIBILITY safety override metrics */
         outline: 2px solid transparent;
         outline-offset: 2px;
     }
 
-    .card-accordion-toggle summary:focus-visible {
-        outline-color: var(--color-focus-ring);
-    }
-
-    .card-accordion-toggle summary::-webkit-details-marker {
-        display: none;
-    }
+    .card-accordion-toggle summary:focus-visible { outline-color: var(--color-focus-ring); }
+    .card-accordion-toggle summary::-webkit-details-marker { display: none; }
 
     .card-accordion-toggle summary h3 {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 0; 
         transition: color var(--transition-speed-fast) var(--transition-ease-standard);
     }
 
     .card-accordion-toggle summary h3::after {
         content: "＋"; 
-        font-size: 1.1rem;
         color: var(--color-accent-warm);
-        font-weight: bold;
         transition: transform var(--transition-speed-fast) var(--transition-ease-standard);
     }
 
-    .card-accordion-toggle[open] summary h3::after {
-        content: "－";
-    }
-
-    .card-accordion-toggle summary:hover h3 {
-        color: var(--color-accent-warm);
-    }
+    .card-accordion-toggle[open] summary h3::after { content: "－"; }
+    .card-accordion-toggle summary:hover h3 { color: var(--color-accent-warm); }
 
     .accordion-drawer {
         padding: 0 var(--space-sm) var(--space-sm) var(--space-sm);
@@ -462,24 +493,35 @@
     }
 
     .card-image {
-        width: auto;
         max-width: 100%;
         height: 300px;
         aspect-ratio: 2 / 3; 
         object-fit: contain;
         border: 1px solid var(--chapter-card-border);
         border-radius: var(--border-radius-sm);
-        margin-block: var(--space-xs);
     }
 
     @keyframes revealCard {
-        from {
-            opacity: 0;
-            transform: translateY(-6px);
+        from { opacity: 0; transform: translateY(-6px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+}
+
+/* ==========================================================================
+   OVERRIDES LAYER: INTERACTION PATH SAFETY OVERRIDES
+   ========================================================================== */
+@layer overrides {
+    a:focus-visible, .chapter:focus-visible, summary:focus-visible {
+        outline: 3px solid var(--color-accent-warm);
+        outline-offset: 4px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
         }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .card-action:hover, .chapter:hover { transform: none !important; }
+        .accordion-drawer { animation: none !important; }
     }
 }
