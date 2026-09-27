@@ -1,5 +1,0 @@
-*   **Asset Name / Identifier:** `assets/petrarch-background.webp`
-    *   **Source / Provenance:** Frontispiece to Petrarch's *De Viris Illustribus*, 1379 (Bibliothèque nationale de France, MS Latin 6069F). Digitized manuscript leaf showcasing the Triumph of Vainglory.
-    *   **License Type:** Public Domain / Educational Fair Use.
-    *   **Technical Optimization Profile:** Processed through an vector graphics editing pipeline, compressed into a lossy WebP footprint at 75% quality to minimize initial network download payloads.
-    *   **Layout Stability & Legibility Mitigation:** Implemented conditionally using desktop viewport media rules (`@media (min-width: 48rem)`) to protect handheld performance constraints. Covered with a hardware-accelerated CSS `::before` masking element running a programmatic absolute overlay (`rgba(252, 250, 242, 0.88)`). This ensures full compliance with WCAG 2.1 AA text contrast boundaries while letting the historical art layer peek through safely.

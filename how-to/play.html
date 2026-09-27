@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarocchi to Tarot | How to Play Classic Italian Tarocchi</title>
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/page.css">
+</head>
+<body id="chapter">
+    <div class="global-backdrop">
+        <header class="site-header">
+            <div class="header-container">
+                <a href="../index.html" class="logo-link">
+                    <span class="site-logo">Tarocchi to Tarot</span>
+                </a>
+                <nav class="site-nav">
+                    <ul>
+                        <li><a href="../chapters/genesis.html" class="nav-link">Chapter One</a></li> 
+                        <li><a href="../chapters/mechanics.html" class="nav-link">Chapter Two</a></li> 
+                        <li><a href="../chapters/esoteric.html" class="nav-link">Chapter Three</a></li> 
+                        <li><a href="../chapters/spread.html" class="nav-link">Chapter Four</a></li> 
+                        <li><a href="../chapters/frontier.html" class="nav-link">Chapter Five</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="chapter-page">
+            <!-- Pattern 4 Override: Emerald Green Title Banner with Crimson Lip -->
+            <section class="title-section">
+                <h1>Classic Italian Tarocchi</h1>
+                <p>An interactive system guide outlining historical trick-taking regulations, scoring matrices, regional card rankings, and live gameplay walkthrough analysis.</p>
+            </section>
+
+            <!-- Section 1: Introduction Core -->
+            <section class="content-section">
+                <h2>Game Overview &amp; Objective</h2>
+                <ul>
+                    <li><strong>Overview:</strong> Tarocchi is a competitive, strategic trick-taking card game developed during the Italian Renaissance. It serves as the direct evolutionary ancestor to modern card games like Spades, Hearts, and Bridge.</li>
+                    <li><strong>The Objective:</strong> Capture tricks (rounds of cards) throughout the match that contain high-value scoring nodes rather than collecting the highest quantity of individual cards.</li>
+                    <li><strong>The Core Mechanics:</strong> The 22 cards of the Major Arcana do not have traditional suit constraints. Instead, they function as permanent trump cards capable of completely overriding standard suited cards during play.</li>
+                </ul>
+            </section>
+
+            <!-- Section 2: Hierarchy Rules -->
+            <section class="content-section">
+                <h2>Suit Hierarchies &amp; Card Rankings</h2>
+                <p>The Court cards always rank highest across all regions, but the numerical "pip" cards alter their structural mechanics based on the shape of their suit symbol:</p>
+                <ul>
+                    <li><strong>Court Cards (Highest in All Suits):</strong> King (Re), Queen (Regina), Knight (Cavalieri), and Page/Jack (Fanti).</li>
+                    <li><strong>Long Suits (Swords and Batons):</strong> Follow standard linear mathematical progression where the highest number wins.
+                        <ul>
+                            <li>Rank Order: 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 (10 is highest).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Round Suits (Cups and Coins):</strong> Follow an inverted ranking system where lower values defeat larger positions.
+                        <ul>
+                            <li>Rank Order: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 (The 1-pip card outranks the 10-pip card).</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Section 3: Value Arrays -->
+            <section class="content-section">
+                <h2>Scoring Values</h2>
+                <p>Victory is calculated by adding up the absolute point values of individual cards resting in your captured piles. The total point matrix equals 120 points across the entire system layout.</p>
+                <ul>
+                    <li><strong>The Five "Honors" (5 Points Each):</strong> The Angel/Judgment (Trump 20), The World (Trump 21), The Fool (Unnumbered / The Excuse), and all four Kings.</li>
+                    <li><strong>Remaining Structural Values:</strong> Queens = 4 points | Knights = 3 points | Pages = 2 points | All Low Trumps &amp; Pip Cards = 1 point.</li>
+                    <li><strong>Scoring Notation:</strong> In traditional tournament configurations, cards are processed in clusters of three, applying custom fractional subtractions to control score inflation. For computational simplicity, this interface utilizes the standardized point value matrix.</li>
+                </ul>
+            </section>
+
+            <!-- Section 4: Bidding and Flow Steps -->
+            <section class="content-section">
+                <h2>Game Flow Operations</h2>
+                <ul>
+                    <li><strong>Deal and Stock:</strong> When playing a classic 3-player configuration with a full 78-card deck, the dealer shuffles and deals 25 cards to each participant. The remaining 3 cards are cached face down in the center of the table layout as the Stock (or <em>Monte</em>).</li>
+                    <li><strong>Bidding Phase:</strong> Starting with the dealer, players evaluate their hands and declare either "Play" or "Pass." The first player declaring "Play" becomes the Soloist, while the remaining two form a temporary defensive alliance, pooling their captured rounds to block the Soloist from succeeding.</li>
+                    <li><strong>The Stock Exchange:</strong> The Soloist integrates the 3 hidden cards from the Stock into their hand and discards any 3 cards face down into their scoring pile. The Soloist is strictly forbidden from discarding a King or high-value Trump.</li>
+                    <li><strong>Gameplay Rules:</strong>
+                        <ul>
+                            <li><strong>Lead &amp; Rotation:</strong> The player to the immediate left of the dealer leads the first card. Play shifts clockwise.</li>
+                            <li><strong>You Must Follow Suit:</strong> If a player leads with a card from the Suit of Cups, all subsequent players must deploy a Cup if they possess one in their array.</li>
+                            <li><strong>Cutting with Trump:</strong> If a hand is empty of the led suit, that player must deploy a Trump card (Major Arcana). Trump cards automatically defeat standard suits. If multiple trumps are played, the highest number wins.</li>
+                            <li><strong>Discarding Safely:</strong> If a player has neither the led suit nor remaining Trumps, they may discard any card. This card is dead and cannot win the round.</li>
+                            <li><strong>Claiming the Trick:</strong> The round is claimed by the highest card of the suit originally led, or by the highest Trump card deployed.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Special Rule of the Fool (The Excuse):</strong> The Fool (Card 0) acts as a unique wildcard with defensive properties. It can be played during any turn, regardless of the suit led. The Fool can never win a trick. Instead of surrendering the Fool to the winner of the round, the player places it directly into their own scoring pile and gives a worthless 1-point pip card from their collection to the trick winner as a replacement balance.</li>
+                    <li><strong>Tallying the Final Score:</strong> Once all tricks are cleared, points are calculated. The Soloist incorporates their 3 original discards into their final sum. To secure a victory, the Soloist must capture 61 points or more. If they score 60 points or fewer, the defensive alliance wins.</li>
+                </ul>
+            </section>
+
+            <!-- Section 5: Video Media & Accordion Layer -->
+            <section class="content-section">
+                <h2>Video Gameplay Demonstration</h2>
+                <p>Watch a variation of the classic game in action. This specific walkthrough demonstrates a four-player, team-based variant (two against two) utilizing a shortened 62-card regional deck format:</p>
+                
+                <figure class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/GsyZVBp28Ug?si=LvWJpvJoRkO8cOgY" title="Video walkthrough showcasing four-player classic Italian Tarocchi gameplay rules and card configurations" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <figcaption class="image-label">
+                        Demonstration of a four-player team Tarocchi match configuration.
+                    </figcaption>
+                </figure>
+
+                <p class="fallback-link">
+                    Can't see the video? <a href="https://www.youtube-nocookie.com/embed/GsyZVBp28Ug?si=LvWJpvJoRkO8cOgY" target="_blank" rel="noopener noreferrer">Watch "How To Play Tarocchi" directly on YouTube</a>.
+                </p>
+                <p class="transcript-directory-link">
+                    Need a full text version with timestamps? 
+                    <a href="transcript.html">Read the complete video transcript summary &rarr;</a>
+                </p>
+
+                <details class="transcript-accordion" style="margin-top: var(--space-md); padding: var(--space-sm); border: 1px solid var(--chapter-card-border); border-radius: var(--border-radius-sm); background-color: rgba(43, 43, 42, 0.02);">
+                    <summary style="font-family: var(--font-heading); color: var(--color-accent-primary); cursor: pointer; font-weight: bold; padding: var(--space-xs);">View Video Transcript Summary</summary>
+                    <div class="transcript-content" style="padding: var(--space-sm); margin-top: var(--space-xs); border-top: 1px dashed var(--chapter-card-border);">
+                        <p style="margin-bottom: var(--space-xs);"><strong>Overview:</strong> A complete gameplay walkthrough highlighting rules, deck variants, and historical structure.</p>
+                        <ul style="list-style-type: square; padding-left: var(--space-md);">
+                            <li style="margin-bottom: var(--space-xs); font-size: 0.95rem;"><strong>Deck Identification:</strong> The specific historic reproduction card deck utilized throughout this gameplay analysis is the <em>Tarocco Neoclassico</em> by publisher <em>Il Meneghello</em>.</li>
+                            <li style="margin-bottom: var(--space-xs); font-size: 0.95rem;"><strong>Rules Variant:</strong> Demonstrates a 4-player team configuration (2 against 2) dealing 15 cards per player with a 62-card pool. The dealer receives 17 cards and discards two low pip cards to establish their initial trick base.</li>
+                            <li style="margin-bottom: var(--space-xs); font-size: 0.95rem;"><strong>The Fool Mechanics:</strong> Showcases the exact wildcard operation where playing the Fool permits a player to shield the card into their own pile regardless of round dominance.</li>
+                        </ul>
+                    </div>
+                </details>
+            </section>
+
+            <section class="content-section u-text-center">
+                <div class="transcript-directory-link">
+                    <a href="../chapters/mechanics.html" class="card-action">Chapter Two: System Mechanics &rarr;</a>
+                </div>
+            </section>
+
+        </main> 
+        
+        <footer class="site-footer">
+                <div class="footer-meta">
+                    <p class="title">Tarocchi to Tarot</p>
+                    <p class="copyright">&copy; 2026 Sarah Morrigan Powers Moore. All rights reserved.</p>
+                </div>
+                <nav class="footer-links" aria-label="Footer Navigation">
+                    <a href="reference-pages/disclosure.html">AI Disclosure</a>
+                    <a href="reference-pages/bibliography.html">Bibliography & Citations</a>
+                </nav>
+            </footer>
+        </section>
+    </div>
+</body>
+</html>
