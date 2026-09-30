@@ -5,77 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tarocchi to Tarot | Home</title>
     <link rel="stylesheet" href="styles/global.css">
-    <link rel="stylesheet" href="styles/index.css">
 </head>
+<body>
 
-<body id="index">
-    <!-- Global wrapper containing the fixed, stationary background artwork -->
-    <div class="global-backdrop">
-        
-        <!-- Main structural canvas holding the layout center -->
-        <div class="table-of-contents-frame">
-            
-            <header class="index-header"> 
-                <div class="logo-block">
-                    <!-- FIXED: Replaced split text spans with a singular semantic header logo image, 
-                         backed by a rich descriptive alt string for accessibility compliance -->
-                    <img src="assets/illuminated-t.webp" 
-                         alt="Tarocchi to Tarot logo: An ornate historic green and gold woodcut letter T framed by decorative Renaissance vines, with the text 'tarocchi to tarot' stacked in lowercase gold serif typography on the right." 
-                         class="cover-logo" 
-                         loading="eager"/>
-                </div>
-                
-                <nav class="header-utility-nav" aria-label="Header Utilities">
-                    <a href="#">Card Layouts</a>
-                    <a href="#">Deck Gallery</a>
-                </nav>
-            </header>
-            
-            <main class="site-index">
-                <section class="description-column" aria-label="Project Abstract Summary">
-                    <p>An archival history mapping the structural development of the Tarot deck. Follow its design progression—beginning as 15th-century Italian playing cards, shifting into global frameworks for psychoanalysis, and establishing the foundational visual training data modern Large Language Models use today.</p>
-                </section>
-            
-                <section class="chapters-column" aria-label="Chapters Directory Link Map">
-                    <a href="chapters/genesis.html" class="chapter-card">
-                        <h2>Chapter One</h2>
-                        <h3>The Genesis of Play</h3>
-                    </a>
-                    
-                    <a href="chapters/mechanics.html" class="chapter-card">
-                        <h2>Chapter Two</h2>
-                        <h3>System Mechanics</h3>
-                    </a>
+    <header class="site-header" id="main-header">
+        <a href="index.html" class="logo-link">
+            Home 
+            <img src="illuminated-t.svg" alt="Illuminated letter T icon">
+            <span class="site-title">Tarocchi to Tarot</span>
+            <span class="sub-title">A History of Card Reading</span>
+        </a>
+    </header>
 
-                    <a href="chapters/esoteric.html" class="chapter-card">
-                        <h2>Chapter Three</h2>
-                        <h3>The Esoteric Shift</h3>
-                    </a>
-                    
-                    <a href="chapters/spread.html" class="chapter-card">
-                        <h2>Chapter Four</h2>
-                        <h3>The Modern Spread</h3>
-                    </a>
+    <nav class="site-nav" id="main-nav">
+        <a href="one-genesis.html" class="chapter-link" id="nav-genesis">
+            <span class="chapter-num">Chapter One</span>
+            <span class="chapter-title">The Genesis of Play</span>
+        </a>
+        <a href="two-mechanics.html" class="chapter-link" id="nav-mechanics">
+            <span class="chapter-num">Chapter Two</span>
+            <span class="chapter-title">System Mechanics</span>
+        </a>
+        <a href="three-esoteric.html" class="chapter-link" id="nav-esoteric">
+            <span class="chapter-num">Chapter Three</span>
+            <span class="chapter-title">The Esoteric Shift</span>
+        </a>
+        <a href="four-spread.html" class="chapter-link" id="nav-spread">
+            <span class="chapter-num">Chapter Four</span>
+            <span class="chapter-title">The Modern Spread</span>
+        </a>
+        <a href="five-frontier.html" class="chapter-link" id="nav-frontier">
+            <span class="chapter-num">Chapter Five</span>
+            <span class="chapter-title">The Generative Frontier</span>
+        </a>
+    </nav>
 
-                    <a href="chapters/frontier.html" class="chapter-card">
-                        <h2>Chapter Five</h2>
-                        <h3>The Generative Frontier</h3>
-                    </a>
-                </section>
-            </main>
-        
-            <!-- Configured structural two-column grid layout footer -->
-            <footer class="site-footer">
-                <div class="footer-brand-meta">
-                    <p class="title">Tarocchi to Tarot</p>
-                    <p class="copyright">&copy; 2026 Sarah Morrigan Powers Moore. All rights reserved.</p>
-                </div>
-                <nav class="footer-links" aria-label="Footer Citations Menu">
-                    <a href="reference-pages/disclosure.html">AI Disclosure</a>
-                    <a href="reference-pages/bibliography.html">Bibliography &amp; Citations</a>
-                </nav>
-            </footer>
-        </div>
-    </div>
+    <main class="main-index" id="main-introduction">
+        <article class="main-content">
+            <img src="placeholder.jpg" alt="" class="intro-image">
+            <p class="content-description">
+                An archival history mapping the development of the Tarot deck. Follow its progression—beginning as a 15th-century Italian parlor game, shifting into global frameworks for psychoanalysis, and establishing the visual training data for Large Language Models today.
+            </p>
+        </article>
+    </main>
+
+    <footer class="site-footer" id="main-footer">
+        <p class="title">Tarocchi to Tarot</p>
+        <p class="copyright">© 2026 Sarah Morrigan Powers Moore. All rights reserved.</p>
+        <section class="reference-nav">
+            <a href="bibliography.html" class="reference-link">
+                <span class="bibliography">Bibliography & Citations</span>
+            </a>
+            <a href="disclosure.html" class="reference-link">
+                <span class="disclosure">AI Disclosure</span>
+            </a>
+        </section>
+    </footer>
+
 </body>
 </html>

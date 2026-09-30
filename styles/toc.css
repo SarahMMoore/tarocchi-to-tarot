@@ -1,0 +1,156 @@
+@ layer layout{
+  /* ==========================================================================
+   CONTAINER STYLES 
+   ========================================================================== */
+
+  .table-of-contents-frame {
+          inline-size: 100%;
+          max-inline-size: 944px; 
+          margin-block: var(--space-fluid-lg);
+          margin-inline: auto;
+          padding-inline: var(--space-fluid-md);
+          padding-block: var(--space-fluid-md);
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: var(--space-fluid-sm);
+      }
+
+/* ==========================================================================
+  HEADER & NAVIGATION STYLES (.index-header, .header)
+  ========================================================================== */
+
+  .index-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* FIXED: Centers both columns evenly on the cross-axis */
+    width: 100%;
+    padding-inline: var(--space-md);
+    padding-block-start: var(--space-md);
+    padding-block-end: var(--space-md);
+  }
+
+  .header {
+
+  }
+
+  .logo-block,
+  .header-logo-nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .cover-logo {
+    width: auto;
+    height: clamp(110px, 12vw, 155px); 
+    display: block;
+    margin-block-end: 0; 
+    }
+
+  .header-utility-nav {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-xs);
+        text-align: right;
+        padding-block-start: var(--space-xs);
+        align-items: center;    
+    }
+
+  .header-utility-nav a {
+
+  }
+
+  .header-utility-nav a:hover {
+
+  }
+
+  /* ==========================================================================
+    3. MAIN LAYOUT & ABSTRACT COLUMN (.site-index, .gallery-index)
+    ========================================================================== */
+
+  .site-index,
+  .gallery-index {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-fluid-md);
+    padding-inline: var(--space-sm);
+  }
+
+  .description-column {
+
+  }
+
+  .description-column p {
+    margin-inline-end: 0;
+  }
+
+  .description-column strong {
+
+  }
+
+  /* ==========================================================================
+    4. CHAPTERS GRID & CARDS STYLES (.chapters-column, .chapter-card)
+    ========================================================================== */
+
+  .chapters-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .chapter-card {
+
+  }
+
+  .chapter-card:hover {
+
+  }
+
+  .chapter-card h2 {
+
+  }
+
+  .chapter-card h3 {
+
+  }
+
+  .chapter-card p {
+
+  }
+
+  .chapter-card strong {
+
+  }
+
+  /* ==========================================================================
+    5. SITE FOOTER STYLES (.site-footer)
+    ========================================================================== */
+
+  .site-footer {
+
+  }
+
+  .footer-brand-meta {
+
+  }
+
+  .footer-brand-meta .title {
+
+  }
+
+  .footer-brand-meta .copyright {
+
+  }
+
+  .footer-links {
+
+  }
+
+  .footer-links a {
+
+  }
+
+  .footer-links a:hover {
+
+  }
+}
