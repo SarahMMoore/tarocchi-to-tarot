@@ -1,0 +1,162 @@
+/* ==========================================================================
+   HOME PAGE MICRO-COMPONENTS
+   Handles home page dashboard metrics, grid portals, and container-driven links.
+   ========================================================================= */
+@layer component {
+
+  /* --- Primary Root Main Section Grid Engine --- */
+  .main-index {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: var(--space-500) var(--space-300);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-400); /* Uses the optimized responsive layout gap parameter */
+  }
+
+  /* --- Core Top Introduction Profile Block --- */
+  .index-section {
+    text-align: center;
+    background-color: var(--color-text-light);
+    padding: var(--space-400);
+    border: 1px solid rgba(21, 21, 20, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(21, 21, 20, 0.05);
+  }
+
+  .index-section h2 {
+    font-family: var(--font-heading-sc);
+    font-size: 2.2rem;
+    margin-bottom: var(--space-200);
+    border-bottom: 2px solid var(--color-gold);
+    display: inline-block;
+    padding-bottom: var(--space-100);
+  }
+
+  .index-section p {
+    font-size: 1.15rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--color-text-dark);
+  }
+
+  /* --- Section Portal Layout Cards (CLEANED UP: layout-section removed) --- */
+  .gallery-section, 
+  .video-section {
+    background-color: var(--color-text-light);
+    padding: var(--space-400);
+    border-radius: 4px;
+    border-top: 4px solid var(--color-bg-accent);
+    box-shadow: 0 2px 8px rgba(21, 21, 20, 0.05);
+  }
+
+  .gallery-section h2,
+  .video-section h2 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    margin-bottom: var(--space-100);
+  }
+
+  .gallery-section p,
+  .video-section p {
+    font-style: italic;
+    margin-bottom: var(--space-300);
+    color: rgba(21, 21, 20, 0.7);
+  }
+
+  /* --- Secondary Navigation Portal Link Blocks --- */
+  .gallery-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-200);
+  }
+
+  .gallery-nav-list li {
+    width: 100%;
+  }
+
+  .gallery-nav-list a {
+    display: block;
+    padding: var(--space-200);
+    background-color: var(--color-bg-accent);
+    color: var(--color-text-light);
+    font-family: var(--font-heading-alt);
+    font-size: 1.1rem;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid var(--color-bg-accent);
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+
+  .gallery-nav-list a:hover {
+    background-color: var(--color-bg-sidebar);
+    border-color: var(--color-bg-sidebar);
+    color: var(--color-text-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(21, 21, 20, 0.15);
+  }
+
+  /* Structural accessibility fallback verification rules */
+  .gallery-nav-list a:focus-visible {
+    outline: var(--focus-ring) !important;
+    outline-offset: var(--focus-offset) !important;
+    transform: translateY(-2px);
+  }
+
+  /* --- Container Queries for Individual Portal Cards --- */
+  #gallery-nav,
+  #video-nav {
+    container-type: inline-size;
+    container-name: portal-card;
+    width: 100%;
+  }
+
+  @container portal-card (min-width: 28rem) {
+    .gallery-nav-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+      gap: var(--space-200);
+    }
+    
+    .gallery-nav-list a {
+      padding-block: var(--space-300); 
+    }
+  }
+
+  /* ==========================================================================
+     MEDIUM RESPONSIVE VIEWPORTS (TABLET BREAKPOINT SYSTEM)
+     ========================================================================== */
+  @media (min-width: 48rem) {
+    .main-index {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .index-section {
+      grid-column: 1 / -1; /* Ensures your site intro spans all the way across rows */
+    }
+    
+    #video-nav {
+      grid-column: span 2;
+    }
+    
+    .gallery-nav-list {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: var(--space-200);
+    }
+    
+    .gallery-nav-list li {
+      flex: 1;
+      text-align: center;
+    }
+    
+    #watch-tarocchi li {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+}

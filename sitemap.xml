@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://sitemaps.org">
+    <!-- Main Landing Hub -->
+    <url>
+        <loc>https://tarocchi-to-tarot.com</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <!-- Core Narrative Textbook Chapters (Folder: /chapter/) -->
+    <url>
+        <loc>https://tarocchi-to-tarot.com</loc>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://tarocchi-to-tarot.com</loc>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://tarocchi-to-tarot.com</loc>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://tarocchi-to-tarot.com</loc>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://tarocchi-to-tarot.com</loc>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://tarocchi-to-tarot.com</loc>
+        <priority>0.80</priority>
+    </url>
+
+    <!-- Digital Image Galleries (Folder: /decks/) -->
+    <url>
+        <loc>https://tarocchi-to-tarot.com</loc>
+        <priority>0.60</priority>
+    </url>
+    <url>
+        <loc>https://tarocchi-to-tarot.com</loc>
+        <priority>0.60</priority>
+    </url>
+    <url>
+        <loc>https://tarocchi-to-tarot.com</loc>
+        <priority>0.60</priority>
+    </url>
+
+    <!-- Accessibility & Media Alternatives (Folder: /reference-pages/) -->
+    <url>
+        <loc>https://tarocchi-to-tarot.com</loc>
+        <priority>0.40</priority>
+    </url>
+    <url>
+        <loc>https://tarocchi-to-tarot.com</loc>
+        <priority>0.40</priority>
+    </url>
+    <url>
+        <loc>https://tarocchi-to-tarot.com</loc>
+        <priority>0.40</priority>
+    </url>
+</urlset>

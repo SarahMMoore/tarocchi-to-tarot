@@ -1,0 +1,317 @@
+/* ==========================================================================
+   INDIVIDUAL DECK OVERRIDES, ADVANCED GRIDS, & CARD ASSETS
+   Scopes specific card layout matrices, missing icon styles, and text badges.
+   ========================================================================== */
+@layer component {
+
+  /* --- Core Deck Gallery Area Parent --- */
+  .deck-gallery {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-400) var(--space-200);
+    background-color: var(--color-text-light);
+    box-shadow: 0 0 25px rgba(21, 21, 20, 0.12);
+  }
+
+  /* --- Advanced Progressive CSS Grid Matrix --- */
+  .gallery-grid-matrix {
+    display: grid;
+    /* Auto-fill system loops dynamically determine columns based on available space */
+    grid-template-columns: repeat(auto-fill, minmax(var(--deck-grid-min, 280px), 1fr));
+    gap: var(--space-300);
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin-block: var(--space-400);
+  }
+
+  /* Structural configuration loop for grid-rendered item nodes */
+  .gallery-grid-matrix li {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff6e8;
+    padding: var(--space-200);
+    border: 1px solid rgba(21, 21, 20, 0.12);
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(21, 21, 20, 0.06);
+  }
+
+  /* Forces text-heading blocks to keep uniform spacing heights */
+  .gallery-grid-matrix li h4 {
+    font-family: var(--font-heading-alt);
+    margin-block-end: var(--space-200);
+    min-height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-dark);
+  }
+
+  .gallery-grid-matrix .card-image-wrap {
+    margin-block-start: auto; /* Aligns card elements cleanly at baseline borders */
+  }
+
+  /* --- Archival Gallery Deck Openings --- */
+  .deck-profile-intro {
+    text-align: center;
+    margin-bottom: var(--space-500);
+    padding-bottom: var(--space-400);
+    border-bottom: 1px double rgba(21, 21, 20, 0.25);
+  }
+
+  .deck-profile-meta {
+    font-family: var(--font-heading-alt);
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--color-bg-sidebar);
+    margin-top: -0.5rem;
+    margin-bottom: var(--space-200);
+  }
+
+  /* --- Deck Image Micro-adjustments & Aspect Ratio Layout Preservation --- */
+  .deck-gallery .card-image,
+  .placeholder {
+    background-color: #ffffff;
+    padding: var(--space-100);
+    border: 1px solid rgba(21, 21, 20, 0.1);
+    box-shadow: inset 0 0 10px rgba(21, 21, 20, 0.05);
+    transition: border-color 0.2s ease-in-out;
+    aspect-ratio: 2.25 / 3.5; /* Forces strict aspect tracking box space reservation */
+    width: 100%;
+    height: auto;
+  }
+
+  /* Parent hover cascades cleanly down to child asset nodes */
+  .gallery-grid-table td:hover .card-image,
+  .gallery-grid-matrix li:hover .card-image {
+    border-color: var(--color-gold-bright);
+  }
+
+  /* --- Classic Layout Fallback Sizing Configurations --- */
+  .gallery-grid-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: var(--space-300);
+    margin: var(--space-500) 0;
+  }
+
+  .gallery-grid-table caption {
+    font-family: var(--font-heading-sc);
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    padding-bottom: var(--space-200);
+    color: rgba(21, 21, 20, 0.7);
+    border-bottom: 1px solid rgba(21, 21, 20, 0.15);
+  }
+
+  .table-row-heading-divider th {
+    background-color: var(--color-bg-accent);
+    color: var(--color-text-light);
+    font-family: var(--font-heading-sc);
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    padding: var(--space-100) var(--space-200);
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(21, 21, 20, 0.1);
+  }
+
+  .gallery-grid-table td {
+    width: 25%; 
+    vertical-align: top;
+    background-color: #fff6e8; 
+    padding: 1.25rem;
+    border: 1px solid rgba(21, 21, 20, 0.12);
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(21, 21, 20, 0.06);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  }
+
+  .gallery-grid-table td:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(21, 21, 20, 0.15);
+    border-color: var(--color-gold);
+  }
+
+  .gallery-grid-table td h4 {
+    font-family: var(--font-heading-alt);
+    font-size: 1.05rem;
+    text-align: center;
+    margin-bottom: var(--space-200);
+    min-height: 2.5rem; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-dark);
+  }
+
+  /* --- Individual Deck Sizing Overrides --- */
+  #minchiate-firenze .gallery-grid-table td {
+    width: 20%;
+    padding: 0.75rem; 
+  }
+
+  #minchiate-firenze .gallery-grid-table td h4 {
+    font-size: 0.95rem;
+    min-height: 3rem; 
+  }
+
+  #visconti-sforza-main .gallery-grid-table td {
+    width: 33.333%;
+    padding: var(--space-300);
+  }
+
+  #visconti-sforza-main .gallery-grid-table td h4 {
+    font-size: 1.15rem;
+  }
+
+  /* --- Archival Index Badging Systems --- */
+  .card-index-badge {
+    display: inline-block;
+    font-family: var(--font-heading-sc);
+    font-size: 0.85rem;
+    background-color: var(--color-bg-accent);
+    color: var(--color-text-light);
+    padding: 0.2rem var(--space-100);
+    border-radius: 3px;
+    margin-bottom: var(--space-100);
+    letter-spacing: 0.05em;
+  }
+
+  /* --- Missing Visual Asset Background Patterns --- */
+  .missing-card-illustration {
+    position: relative;
+    aspect-ratio: 2.25 / 3.5; /* Reserves space to completely stop layout shifts */
+    width: 100%;
+    height: auto;
+    margin: var(--space-200) 0;
+    background: linear-gradient(135deg, rgba(107, 33, 26, 0.05) 25%, transparent 25%), 
+                linear-gradient(225deg, rgba(107, 33, 26, 0.05) 25%, transparent 25%), 
+                linear-gradient(45deg, rgba(107, 33, 26, 0.05) 25%, transparent 25%), 
+                linear-gradient(315deg, rgba(107, 33, 26, 0.05) 25%, #ffffff 25%);
+    background-size: 20px 20px;
+    border: 1px dashed rgba(107, 33, 26, 0.3);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .missing-card-illustration::after {
+    content: "🎴";
+    font-size: 3rem;
+    opacity: 0.25;
+  }
+
+  .gallery-grid-table td.empty-slot,
+  .gallery-grid-table td.missing-card-slot {
+    background-color: rgba(21, 21, 20, 0.03);
+    border: 1px dashed rgba(21, 21, 20, 0.2);
+    box-shadow: none;
+    pointer-events: none; 
+  }
+
+  .gallery-grid-table td.empty-slot h4,
+  .gallery-grid-table td.missing-card-slot h4 {
+    color: rgba(21, 21, 20, 0.4);
+  }
+
+  .missing-note {
+    font-size: 0.9rem;
+    font-style: italic;
+    text-align: center;
+    color: var(--color-bg-sidebar);
+    padding: var(--space-200) 0;
+  }
+
+  .empty-card-placeholder,
+  .placeholder-box {
+    height: 150px;
+    border: 1px dashed rgba(21, 21, 20, 0.1);
+    border-radius: 4px;
+  }
+
+  /* --- Context Callout Panels --- */
+  .gallery-historical-context {
+    margin-top: var(--space-500);
+    padding: var(--space-400);
+    background-color: var(--color-text-light);
+    border: 1px solid rgba(21, 21, 20, 0.15);
+    border-left: 6px solid var(--color-gold);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .gallery-historical-context h4 {
+    font-family: var(--font-heading-sc);
+    font-size: 1.3rem;
+    color: var(--color-bg-sidebar);
+    margin-bottom: var(--space-100);
+  }
+
+  .deck-publication-credit {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 0.9rem;
+    text-align: center;
+    color: rgba(21, 21, 20, 0.6);
+    margin-top: var(--space-400);
+  }
+
+  /* ==========================================================================
+     FEATURE QUERIES AND PROGRESSIVE LAYOUT FALLBACKS
+     ========================================================================== */
+  .gallery-grid-matrix li {
+    width: 100%;
+    margin-bottom: var(--space-200);
+  }
+
+  @supports (display: grid) {
+    .gallery-grid-matrix {
+      display: grid;
+    }
+    .gallery-grid-matrix li {
+      width: auto;
+      margin-bottom: 0;
+    }
+  }
+
+  /* ==========================================================================
+     MOBILE REFLEXIVE BREAKPOINT REFLOWS (CLASSIC TABLES)
+     ========================================================================== */
+  @media (max-width: 56.25rem) {
+    .gallery-grid-table, 
+    .gallery-grid-table tbody, 
+    .gallery-grid-table tr, 
+    .gallery-grid-table td {
+      display: block;
+      width: 100% !important;
+      box-sizing: border-box;
+    }
+    
+    .gallery-grid-table {
+      border-spacing: 0;
+    }
+    
+    .gallery-grid-table td {
+      margin-bottom: var(--space-300);
+    }
+    
+    .gallery-grid-table td h4 {
+      min-height: auto;
+    }
+    
+    .table-row-heading-divider {
+      display: none !important; 
+    }
+  }
+
+  @media (max-width: 64rem) and (min-width: 56.3125rem) {
+    #minchiate-firenze .gallery-grid-table {
+      border-spacing: 0.75rem;
+    }
+    
+    #minchiate-firenze .gallery-grid-table td h4 {
+      font-size: 0.85rem;
+    }
+  }
+}

@@ -1,0 +1,93 @@
+/* ==========================================================================
+   ACADEMIC REFERENCE ENGINES
+   Styles bibliographic structures, references, and transcripts.
+   ========================================================================== */
+@layer component {
+
+  /* --- Primary Core Reference Container --- */
+  .reference-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--space-500) var(--space-300); /* Refactored to system tokens */
+    background-color: var(--color-text-light);
+    box-shadow: 0 0 20px rgba(21, 21, 20, 0.1);
+  }
+
+  .reference-article {
+    margin-bottom: var(--space-500); /* Refactored to system tokens */
+  }
+
+  .content-section {
+    margin-bottom: var(--space-500); /* Refactored to system tokens */
+  }
+
+  .content-section h2 {
+    font-family: var(--font-heading-alt);
+    font-style: italic;
+    font-size: 1.8rem;
+    text-align: center;
+    color: var(--color-bg-sidebar);
+    margin-bottom: var(--space-300);
+  }
+
+  .content-section h3 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: var(--space-100);
+  }
+
+  .content-section p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-dark);
+    max-width: 850px;
+    margin-bottom: var(--space-400);
+  }
+
+  /* --- Bibliography Research Lists --- */
+  .bibliography-intro {
+    font-style: italic;
+    margin-bottom: var(--space-400); /* Refactored to system tokens */
+    font-size: 1.1rem;
+  }
+
+  .bibliography-citations-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .bibliography-citations-list > li {
+    margin-bottom: var(--space-500); /* Refactored to system tokens */
+    padding-bottom: var(--space-300);
+    border-bottom: 1px double rgba(21, 21, 20, 0.15);
+  }
+
+  .bibliography-citations-list > li > strong {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--color-bg-sidebar);
+    margin-bottom: var(--space-200);
+  }
+
+  .bibliography-citations-list ul {
+    list-style-type: square;
+    padding-left: var(--space-300);
+  }
+
+  .bibliography-citations-list li li {
+    font-size: 1.05rem;
+    margin-bottom: var(--space-250, 1.25rem);
+    line-height: 1.6;
+    text-indent: -1.5rem; 
+    padding-left: 1.5rem;
+  }
+
+  /* --- Standalone Pagination Elements --- */
+  .page-nav {
+    margin-top: var(--space-500); /* Refactored to system tokens */
+    padding-top: var(--space-400);
+    border-top: 1px double rgba(21, 21, 20, 0.2);
+  }
+}
