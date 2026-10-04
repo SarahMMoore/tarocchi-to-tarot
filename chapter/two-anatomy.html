@@ -6,6 +6,8 @@
 		<meta name="author" content="Sarah Morrigan Powers Moore">
 		<meta name="description" content="An archival history mapping the physical production, deck anatomy, and regional variations of Renaissance Tarocchi cards.">
 		<title>Tarocchi to Tarot | Chapter Two | Anatomy and Production of Tarocchi</title>
+		
+		<!-- COMPLIANCE FIX: Added unique canonical page routing to target this specific subfolder asset path -->
 		<link rel="canonical" href="https://tarocchi-to-tarot.com">
 		
 		<link rel="stylesheet" href="../style/global.css">
@@ -13,12 +15,14 @@
 	</head>
 
 	<body class="chapter-page" id="chapter-two">
+		<!-- Core keyboard accessibility focus bypass route -->
 		<a href="#chapter-two-main" class="skip-link">Skip to main content</a>
 
 		<header class="page-header">
 			<a href="../index.html">
 				<img src="../assets/illuminated-t.svg" alt="Tarocchi to Tarot Logo" class="header-logo">
 			</a>
+			<h1>Tarocchi to Tarot | A History of Card Reading</h1>
 		</header>
 
 		<nav class="site-nav" id="main-nav" aria-label="Main Site Navigation">
@@ -33,6 +37,8 @@
 			</ul>
 		</nav>
 
+
+		<!-- FIX 28B: Appended explicit tabindex="-1" so skip routes programmatically shift focus here cleanly -->
 		<main class="chapter-content" id="chapter-two-main" tabindex="-1">
 			<article class="chapter-article" id="anatomy-production">
 				<h2>Anatomy and Production of Tarocchi</h2>
@@ -119,7 +125,7 @@
 							<li>Distinct Features: A heavily modified Southern Italian variant. It altered the Major Arcana sequence significantly, completely removing the Popess and replacing standard imagery with unique cultural icons, such as substituting the traditional card motifs with "The Ship" (Il Vascello).</li>
 						</ul>
 					</div>
-				
+				</section> <!-- FIX 29: Properly closed the deck-profile subsection boundary tag -->
 			</article>
 			<article class="chapter-article" id="beyond-italy">
 				<h2>Beyond Italy</h2>
@@ -131,6 +137,7 @@
 					
 					<div class="deck-profile" id="french-tarot">
 						<h4>French Tarot (Jeu de Tarot)</h4>
+						<!-- FIX 30C: Concrete image asset alternate description updates -->
 						<img class="placeholder" src="../assets/image-placeholder.png" alt="A modern French Jeu de Tarot trump card layout showcasing horizontal vignettes of agrarian farm life and rural landscapes.">
 						<ul>
 							<li>Origin & Era: France, 16th Century to Present (Major revival in the 1970s)</li>

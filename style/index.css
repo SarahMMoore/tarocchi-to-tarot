@@ -143,15 +143,15 @@
       grid-column: span 2;
     }
     
+    #gallery-nav,
+    #video-nav {
+      grid-column: span 2;
+    }
+    
     .gallery-nav-list {
       flex-direction: row;
       justify-content: space-between;
       gap: var(--space-200);
-    }
-    
-    .gallery-nav-list li {
-      flex: 1;
-      text-align: center;
     }
     
     #watch-tarocchi li {
