@@ -84,10 +84,44 @@
     padding-left: 1.5rem;
   }
 
-  /* --- Standalone Pagination Elements --- */
-  .page-nav {
-    margin-top: var(--space-500); /* Refactored to system tokens */
-    padding-top: var(--space-400);
-    border-top: 1px double rgba(21, 21, 20, 0.2);
+  .ref-nav-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;             /* Allows buttons to cleanly drop to a new line on small screens */
+    gap: var(--space-300, 1.5rem); /* Keeps a clean gap between all three elements */
+    list-style: none;
+    padding: 0;
+    margin: var(--space-600, 3rem) auto;
+    max-width: 900px;            /* Keeps the row bounds looking elegant on desktop */
+  }
+
+  .ref-nav-list li {
+    flex: 1;   
+    min-width: 200px; 
+    max-width: 280px;   
+  }
+
+  .ref-nav-list a {
+    display: block;
+    padding: var(--space-200);
+    background-color: transparent;
+    border: 1px solid var(--color-bg-sidebar);
+    color: var(--color-bg-sidebar);
+    font-family: var(--font-heading-alt);
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .ref-nav-list a:hover {
+    background-color: var(--color-bg-sidebar);
+    color: var(--color-bg-center); 
+  }
+
+  .site-footer h1 {
+    font-family: var(--font-heading);
+    color: var(--color-gold-bright);
+    margin-top: 0;
   }
 }
