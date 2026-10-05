@@ -1,10 +1,6 @@
-/* ==========================================================================
-   CHAPTER PAGE COMPONENT ENGINE
-   Styles architectural layouts and narrative components for long-form readings.
-   ========================================================================== */
+
 @layer component {
 
-  /* --- Primary Core Chapter Container --- */
   .chapter-content {
     max-width: 850px;
     margin: 0 auto;
@@ -15,19 +11,17 @@
     border-right: 1px solid rgba(21, 21, 20, 0.1);
   }
 
-  /* --- Top Main Chapter H2 Header --- */
   .chapter-content > h2 {
     font-family: var(--font-heading-sc);
     font-size: 2.4rem;
     text-align: center;
-    margin-bottom: var(--space-400); /* Refactored to system tokens */
+    margin-bottom: var(--space-400);
     border-bottom: 2px double var(--color-bg-sidebar);
     padding-bottom: var(--space-100);
   }
 
-  /* --- Main Historical Articles --- */
   .chapter-article {
-    margin-bottom: var(--space-500); /* Refactored to system tokens */
+    margin-bottom: var(--space-500); 
   }
 
   .chapter-article h2 {
@@ -39,9 +33,8 @@
     margin-bottom: var(--space-200);
   }
 
-  /* --- Nested Content Structural Sections --- */
   .chapter-article-section {
-    margin: var(--space-400) 0; /* Refactored to system tokens */
+    margin: var(--space-400) 0; 
   }
 
   .chapter-article-section h3 {
@@ -57,27 +50,24 @@
     margin-bottom: var(--space-100);
   }
 
-  /* --- Archival Citation Metadata Callouts --- */
   .source-metadata {
     font-family: var(--font-heading-sc);
     font-size: 0.9rem;
     letter-spacing: 0.05em;
     background-color: rgba(21, 21, 20, 0.04);
-    padding: var(--space-200) var(--space-300); /* Refactored to system tokens */
+    padding: var(--space-200) var(--space-300);
     border-left: 4px solid var(--color-bg-sidebar);
     margin: var(--space-300) 0;
     color: rgba(21, 21, 20, 0.8);
   }
 
-  /* --- Typographic Paragraph Text Engine --- */
   .chapter-content p {
     font-size: 1.15rem;
     line-height: 1.75;
-    margin-bottom: var(--space-300); /* Refactored to system tokens */
+    margin-bottom: var(--space-300); 
     text-align: justify;
   }
 
-  /* --- Ordered / Unordered Lists Block Layouts --- */
   .chapter-article-section ul,
   .chapter-article-section ol {
     padding-left: var(--space-300);
@@ -102,11 +92,10 @@
     margin: var(--space-100) 0;
   }
 
-  /* --- Specialized Side-Note Callout Panels --- */
   .historical-note {
     background-color: rgba(20, 61, 48, 0.06); 
     border: 1px dashed var(--color-bg-accent);
-    padding: var(--space-400); /* Refactored to system tokens */
+    padding: var(--space-400); 
     margin: var(--space-500) 0;
     border-radius: 4px;
   }
@@ -130,31 +119,37 @@
     line-height: 1.65;
   }
 
-  /* --- Archival Illustration Image Blocks --- */
   .placeholder, 
   .card-image {
     display: block;
     max-width: 100%;
     height: auto;
-    margin: var(--space-400) auto; /* Refactored to system tokens */
+    margin: var(--space-400) auto; 
     border: 1px solid rgba(21, 21, 20, 0.15);
     box-shadow: 0 4px 10px rgba(21, 21, 20, 0.08);
   }
 
-  /* --- Sequential Chapter Pagination Controls --- */
   .page-nav {
-    margin-top: var(--space-500); /* Refactored to system tokens */
+    margin-top: var(--space-500); 
     padding-top: var(--space-400);
     border-top: 1px double rgba(21, 21, 20, 0.2);
   }
 
   .chapter-nav-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;            
+    gap: var(--space-300, 1.5rem); 
     list-style: none;
     padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-200);
+    margin: var(--space-600, 3rem) auto;
+    max-width: 900px;            
+  }
+
+  .chapter-nav-list li {
+    flex: 1;   
+    min-width: 200px;  
+    max-width: 280px;    
   }
 
   .chapter-nav-list a {
@@ -172,16 +167,14 @@
 
   .chapter-nav-list a:hover {
     background-color: var(--color-bg-sidebar);
-    color: var(--color-text-light);
+    color: var(--color-bg-center); 
   }
 
-  /* Focus ring fallback verification rules for assistive technologies */
   .chapter-nav-list a:focus-visible {
     outline: var(--focus-ring) !important;
     outline-offset: var(--focus-offset) !important;
   }
 
-  /* --- Embedded Structural Tables --- */
   .decks-table {
     width: 100%;
     border-collapse: collapse;
@@ -201,8 +194,7 @@
     font-family: var(--font-heading-sc);
   }
 
-  /* --- Responsive Breakpoint Reflows --- */
-  @media (min-width: 37.5rem) { /* Refactored 600px to standard 37.5rem baseline */
+  @media (min-width: 37.5rem) { 
     .chapter-nav-list {
       flex-direction: row;
       justify-content: space-between;
