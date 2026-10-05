@@ -157,9 +157,9 @@
   }
 
   #visconti-sforza-main .gallery-grid-table td {
-    width: 33.333%;
+    width: 25%; 
     padding: var(--space-300);
-  }
+}
 
   #visconti-sforza-main .gallery-grid-table td h4 {
     font-size: 1.15rem;
