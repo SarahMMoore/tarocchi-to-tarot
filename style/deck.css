@@ -3,6 +3,11 @@
    Scopes specific card layout matrices, missing icon styles, and text badges.
    ========================================================================== */
 @layer component {
+  img.set-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   /* --- Core Deck Gallery Area Parent --- */
   .deck-gallery {
@@ -69,6 +74,18 @@
   }
 
   /* --- Deck Image Micro-adjustments & Aspect Ratio Layout Preservation --- */
+  .deck-gallery .card-image,
+  .placeholder {
+    background-color: #ffffff;
+    padding: var(--space-100);
+    border: 1px solid rgba(21, 21, 20, 0.1);
+    box-shadow: inset 0 0 10px rgba(21, 21, 20, 0.05);
+    transition: border-color 0.2s ease-in-out;
+    aspect-ratio: 2.25 / 3.5; /* Forces strict aspect tracking box space reservation */
+    width: 100%;
+    height: auto;
+  }
+
   .deck-gallery .card-image,
   .placeholder {
     background-color: #ffffff;
