@@ -51,42 +51,43 @@
   font-display: swap;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&family=IM+Fell+Great+Primer:ital@0;1&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://googleapis.com');
 
 /* --- Define the explicit priority cascade stack order first --- */
 @layer reset, base, layout, component, utility, state;
 
 /* ==========================================================================
    1. BASE LAYER
-   Handles core typography baselines, generic tags, and design token maps.
    ========================================================================== */
 @layer base {
   :root {
-    /* --- Production Color Palette Tokens --- */
     --color-bg-center: #ccc2b4;
     --color-bg-sidebar: #6b211a;
     --color-bg-accent: #143d30;
-    --color-gold: #a67c1e;        /* Darkened gold accent color to satisfy contrast against gray fields */
-    --color-gold-bright: #e5c17d; /* Conforms cleanly when used purely over dark background fields */
+    --color-gold: #a67c1e;        
+    --color-gold-bright: #e5c17d; 
     --color-text-light: #dfd8cb;
     --color-text-dark: #151514;
 
-    /* --- Typographic Font Stacks --- */
     --font-body: 'Lora', 'Times New Roman', serif;
     --font-heading: 'IM Fell Great Primer', serif;
     --font-heading-sc: 'IM Fell English SC', serif;
     --font-heading-alt: 'IM Fell English', serif;
 
-    /* --- Universal System Spacing Tokens --- */
+    --font-size-sm: clamp(0.875rem, 0.26vw + 0.82rem, 1rem);
+    --font-size-base: clamp(1rem, 0.26vw + 0.95rem, 1.125rem);
+    --font-size-md: clamp(1.25rem, 0.51vw + 1.15rem, 1.5rem);
+    --font-size-lg: clamp(1.5rem, 1.03vw + 1.29rem, 2rem);
+    --font-size-xl: clamp(2rem, 2.05vw + 1.59rem, 3rem);
+
     --space-100: 0.5rem;
     --space-200: 1.0rem;
     --space-300: 1.5rem;
     --space-400: 2.5rem;
     --space-500: 5.0rem;
 
-    /* --- Interactive Focus Rings --- */
-    --focus-ring: 3px double var(--color-gold-bright);
-    --focus-offset: 4px;
+    --focus-ring: 5px double var(--color-gold-bright);
+    --focus-offset: 8px;
   }
 
   *, *::before, *::after {
@@ -100,20 +101,26 @@
     color: var(--color-text-dark);
     font-family: var(--font-body);
     line-height: 1.65;
+    
+  }
+
+  img, svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
   }
 
   h1, h2, h3, h4, h5 {
     font-family: var(--font-heading);
     color: var(--color-text-dark);
-    margin-top: 0;
+    margin-top: var(--space-100);
   }
 
-  .page-header h3 {
-    color: var(--color-gold-bright);
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-top: 10px;
-  }
+  h2, h3, h4, h5 {
+    font-family: var(--font-heading);
+    color: var(--color-text-dark);
+    margin-top: var(--space-300);
+  }  
 
   .chapter-content p,
   .content-section p,
@@ -122,42 +129,67 @@
     margin-inline: auto;
   }
 }
-
 /* ==========================================================================
    2. COMPONENT LAYER
-   Repeatable interface elements wrapped safely inside your architecture stack.
    ========================================================================== */
 @layer component {
   .page-header {
-    padding: var(--space-400) var(--space-200);
+    padding: var(--space-200);
     text-align: center;
     background-color: var(--color-bg-accent);
-    border-bottom: 2px solid var(--color-bg-accent);
+    border-bottom: 5px solid var(--color-gold);
+  }
+
+  @media (min-width: 48rem) {
+    .page-header {
+      padding: var(--space-400) var(--space-200); 
+    }
   }
 
   .page-header h1 {
     font-family: var(--font-heading-sc);
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    font-size: clamp(1.75rem, 4vw + 1rem, 3rem);
     color: var(--color-gold-bright); 
+    margin: 0 0 0.5rem 0;
   }
 
   .page-header h2 {
     font-family: var(--font-heading-alt);
-    font-style: italic;
-    font-size: 1.5rem;
+    font-size: clamp(1.15rem, 3vw + 0.8rem, 1.5rem); 
     color: var(--color-text-light);
+    margin: 0;
   }
 
   .header-logo {
-    max-width: 300px;
+    width: 100%;
+    max-width: 128px;
     height: auto;
-    margin-bottom: 1rem;
+    background-color: var(--color-bg-sidebar);
+    border: 5px solid var(--color-gold);
+    margin: 0 auto var(--space-200) auto;
+  }
+
+  .page-header p {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base); 
+    color: var(--color-text-light);
+    text-align: left;
+    margin: 0 var(--space-300) var(--space-300) var(--space-300) ;
   }
 
   .site-nav {
     background-color: var(--color-bg-sidebar);
-    border-bottom: 2px solid var(--color-gold-bright);
+    box-shadow: 0 5px 10px 1px rgba(21, 21, 20, 0.4);
+  }
+
+  .site-nav h2 {
+    font-family: var(--font-heading-sc);
+    color: var(--color-gold-bright);
+    font-size: var(--font-size-lg);
+    line-height: 1.4;
+    padding: var(--space-200);
+    margin: 0;
+    text-align: center;
   }
 
   .site-nav-list {
@@ -166,35 +198,74 @@
     margin: 0;
     display: flex;
     flex-direction: column; 
+    flex-wrap: wrap; 
+    border-top: 2px solid var(--color-gold);
   }
 
   .site-nav-list a {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 44px; /* Satisfies mobile layout interactive tap target recommendations */
-    padding: var(--space-200);
-    color: var(--color-text-light);
+    min-height: 44px; /* Essential touch target accessibility baseline */
     font-family: var(--font-heading-alt);
     text-decoration: none;
     letter-spacing: 0.05em;
+    line-height: 1.25;
+    padding: var(--space-200);
+    border-bottom: 2px solid var(--color-gold);
+    color: var(--color-text-light);
+    text-align: center;
     transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .site-nav-list p {
+    color: var(--color-gold-bright);
+    font-weight: bold;
+    font-variant-caps: all-small-caps;
+    margin: 0;
+  }
+
+  .site-nav-list li:last-child a {
+    border-bottom: none;
   }
 
   @media (min-width: 48rem) {
     .site-nav-list {
       flex-direction: row;
-      flex-wrap: wrap; /* Prevents text clipping overlaps if fonts size up during text-only zoom tests */
       justify-content: space-around;
+      border: 2px solid var(--color-gold);
+      border-top: none;
+    }
+    
+    .site-nav-list a {
+      border-bottom: none;
+      flex: 1;
+      border-right: 1px solid rgba(166, 124, 30, 0.3);
+    }
+    
+    .site-nav-list li:last-child a {
+      border-right: none;
+    }
+
+    .site-nav h2 {
+      border: 2px solid var(--color-gold);
+      border-bottom: none;
+      padding-top: var(--space-200);
     }
   }
 
   .site-footer {
-    padding: var(--space-500) var(--space-200);
-    margin-top: var(--space-500);
+    padding: var(--space-400) var(--space-200);
     text-align: center;
     background-color: var(--color-bg-accent);
-    border-top: 2px solid var(--color-gold-bright);
+    border-top: 10px solid var(--color-gold);
+    margin-top: auto; /* Sticky layout anchor */
+  }
+
+  @media (min-width: 48rem) {
+    .site-footer {
+      padding: var(--space-500) var(--space-200);
+    }
   }
 
   .site-footer p {
@@ -210,10 +281,8 @@
     transition: color 0.2s ease-in-out;
   }
 }
-
 /* ==========================================================================
    3. LAYOUT LAYER
-   Sets overall block rules and centers page content containers cleanly.
    ========================================================================== */
 @layer layout {
   .page-wrapper,
@@ -228,14 +297,14 @@
   .deck-gallery,
   .chapter-content,
   .reference-content {
-    margin-block-start: var(--space-400); 
+    /* Using padding instead of margin to prevent container collapse against fixed blocks */
+    padding-block-start: var(--space-400); 
     margin-block-end: var(--space-500);
   }
 }
 
 /* ==========================================================================
    4. UTILITY LAYER
-   High-specificity structural override helper metrics.
    ========================================================================== */
 @layer utility {
   .u-visually-hidden,
@@ -259,13 +328,12 @@
     margin-top: var(--space-300) !important;
   }
 
-  /* Global layout styling for skip-navigation layout patterns */
   .skip-link {
     position: absolute;
     top: -10rem;
     left: 2rem;
-    background-color: var(--color-bg-sidebar); /* Rich deep red background */
-    color: var(--color-text-light);          /* High contrast light cream text */
+    background-color: var(--color-bg-sidebar); 
+    color: var(--color-text-light);          
     padding: 0.75rem 1.5rem;
     font-family: var(--font-body);
     border: 2px solid var(--color-gold-bright);
@@ -277,18 +345,17 @@
   }
 
   .skip-link:focus-visible {
-    top: 0; /* Drops down over header when focused via Tab */
+    top: 0; 
     outline: none !important;
   }
 }
 
 /* ==========================================================================
    5. STATE LAYER
-   Handles interactive hover, focus outlines, current pages, and system queries.
    ========================================================================== */
 @layer state {
   .site-nav-list a:hover {
-    background-color: rgba(0, 0, 0, 0.3); /* Darkened background blend patch to enforce high-contrast link focus */
+    background-color: rgba(0, 0, 0, 0.3); 
     color: var(--color-gold-bright);
   }
 
