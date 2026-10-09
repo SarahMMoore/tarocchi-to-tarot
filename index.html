@@ -32,36 +32,91 @@
 
 	<body class="index-page" id="site-index">
 		<a href="#index-page" class="skip-link">Skip to main content</a>
+
 		<header class="page-header">
 			<a href="index.html">
 				<img src="assets/illuminated-t.svg" alt="Tarocchi to Tarot Logo" class="header-logo">
 			</a>
-			<h1>Tarocchi to Tarot<br>A History of Card Reading</h1>
-				<p>An archival history mapping the development of the Tarot deck. Follow its progression—beginning as a 15th-century Italian parlor game, shifting into global frameworks for psychoanalysis, and establishing the visual training data for Large Language Models today.</p>			
-				<nav class="site-nav" id="main-nav" aria-label="Main Site Navigation">
-					<h2>Chapter List</h2>
-					<ul class="site-nav-list">
-						<li><a href="chapter/one-origins.html">Origins<br>of Playing Cards</a></li>
-						<li><a href="chapter/two-anatomy.html">Anatomy & Production<br>of Tarocchi</a></li>
-						<li><a href="chapter/three-classic.html">How to Play<br>Classic Italian Tarocchi</a></li>
-						<li><a href="chapter/four-tarot.html">From Tarocchi to Tarot</a></li>
-						<li><a href="chapter/five-spreads.html">How To Conduct a<br>Modern Spread</a></li>
-						<li><a href="chapter/six-today.html">Tarot Today</a></li>
-					</ul>
-				</nav>
+			<div class="header-text-group">
+				<h1>Tarocchi to Tarot</h1>
+				<h2>A History of Card Reading</h2>		
+			</div>
 		</header>
 
-		<main class="main-index" id="index-page" tabindex="-1">
-			<section class="gallery-section" id="gallery-nav">
-				<h2>Deck Gallery</h2>
-				<p>Gallery of three classic decks</p>
-				<ul class="gallery-nav-list">
-					<li><a href="decks/visconti-sforza.html">Visconti Sforza Deck</a></li>
-					<li><a href="decks/minchiate.html">Minchiate di Firenze Deck</a></li>
-					<li><a href="decks/rider-waite-smith.html">Rider-Waite Smith Deck</a></li>
+		<div class="content-row-wrapper">
+			<main class="main-index" id="index-page" tabindex="-1">
+				<section class="main-section" id="site-description">
+				<figure>
+					<img class="section-image" id="index-main" src="../assets/index-image.webp">
+					<figcaption class="image-caption">A conceptual timeline demonstrating the historical evolution of Tarot. The visual moves chronologically from its 15th-century aristocratic parlor game roots (left), through 20th-century psychological frameworks of archetypes and psychoanalysis (center), and ultimately into modern digital datasets used to train artificial intelligence models (right).</figcaption>
+				</figure>
+
+					<p>An archival history mapping the development of the Tarot deck. Follow its progression—beginning as a 15th-century Italian parlor game, shifting into global frameworks for psychoanalysis, and establishing the visual training data for Large Language Models today.</p>	
+				</section>	
+				<section class="gallery-section" id="gallery-nav">
+					<h2>Deck Gallery</h2>
+					<ul class="gallery-nav-list">
+						<li>
+							<a href="decks/visconti-sforza.html" class="site-btn">
+								<span class="chapter-label">Visconti Sforza</span>
+							</a>
+						</li>
+						<li>
+							<a href="decks/minchiate.html" class="site-btn">
+								<span class="chapter-label">Minchiate di Firenze</span>
+							</a>
+						</li>
+						<li>
+							<a href="decks/rider-waite-smith.html" class="site-btn">
+								<span class="chapter-label">Rider-Waite-Smith</span>
+							</a>
+						</li>
+					</ul>
+				</section>			
+			</main>
+
+			<nav class="site-nav" id="main-nav" aria-label="Main Site Navigation">
+				<h2>Chapter List</h2>
+				<ul class="site-nav-list">
+					<li>
+						<a href="../chapter/one-origins.html">
+							<span class="chapter-label">Chapter One</span>
+							<span class="chapter-title">Origins of Playing Cards</span>
+						</a>
+					</li>
+					<li>
+						<a href="../chapter/two-anatomy.html">
+							<span class="chapter-label">Chapter Two</span>
+							<span class="chapter-title">Anatomy & Production</span>
+						</a>
+					</li>
+					<li>
+						<a href="../chapter/three-classic.html">
+							<span class="chapter-label">Chapter Three</span>
+							<span class="chapter-title">How to Play Tarocchi</span>
+						</a>
+					</li>
+					<li>
+						<a href="../chapter/four-tarot.html">
+							<span class="chapter-label">Chapter Four</span>
+							<span class="chapter-title">From Tarocchi to Tarot</span>
+						</a>
+					</li>
+					<li>
+						<a href="../chapter/five-spreads.html">
+							<span class="chapter-label">Chapter Five</span>
+							<span class="chapter-title">How to Conduct a Spread</span>
+						</a>
+					</li>
+					<li>
+						<a href="../chapter/six-today.html">
+							<span class="chapter-label">Chapter Six</span>
+							<span class="chapter-title">Tarot Today</span>
+						</a>
+					</li>
 				</ul>
-			</section>			
-		</main>
+			</nav>
+		</div> 
 
 		<footer class="site-footer" id="footer">
 			<p>© 2026 Sarah Morrigan Powers Moore. All rights reserved.</p>
