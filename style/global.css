@@ -530,7 +530,7 @@ hr {
 
   .content-row-wrapper {
     display: grid;
-    grid-template-columns: 1fr 250pxß;
+    grid-template-columns: 1fr 250px;
     align-items: stretch;
     width: calc(100% - 2rem);
     max-width: var(--content-width);
